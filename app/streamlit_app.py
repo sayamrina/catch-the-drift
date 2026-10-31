@@ -33,6 +33,11 @@ h1 { font-family: 'Source Serif 4', serif !important; font-weight: 600; color: #
   border-left: 4px solid #D9462E; border-radius: 10px; }
 .project-popup a { padding: 6px 12px; background: #1d2733; color: #fff !important; font-weight: 700;
   text-decoration: none !important; border-radius: 7px; }
+.doc-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 1.4rem; }
+.doc-btn { display: inline-block; padding: 7px 14px; border: 2px solid #1d2733; color: #1d2733 !important; font-weight: 700;
+  font-size: .95rem; text-decoration: none !important; border-radius: 7px; }
+.doc-btn.primary { background: #1d2733; color: #fff !important; }
+.doc-btn:hover { background: #2563EB; border-color: #2563EB; color: #fff !important; }
 @media (max-width: 640px) { .project-popup { flex-wrap: wrap; } }
 </style>
 <aside class="project-popup" aria-label="Portfolio project">
@@ -120,6 +125,11 @@ st.title("Catch the Drift")
 st.markdown('<p class="lede">A student watches a 19-minute video lecture and presses a key whenever they notice their '
             'mind has wandered. A detector that has never seen this student reads only their eye movements. '
             'Where would a tutor step in, and what would it ask?</p>', unsafe_allow_html=True)
+st.markdown('<nav class="doc-links" aria-label="Project page">'
+            '<a class="doc-btn primary" href="https://sayamrina.github.io/catch-the-drift/#plain" target="_blank" '
+            'rel="noopener">How it works, in plain words</a>'
+            '<a class="doc-btn" href="https://sayamrina.github.io/catch-the-drift/#reading-the-demo" target="_blank" '
+            'rel="noopener">How to read this demo</a></nav>', unsafe_allow_html=True)
 
 pids = sorted(scores.pid.unique(), key=lambda s: int(s.split("_s")[-1]))
 label = {p: f"Student {p.split('_s')[-1]}" for p in pids}
@@ -170,5 +180,5 @@ demo is not better than chance; the demo shows how such a system would behave, n
 
 **Limits.** Self-reports only capture the moments students noticed; unreported mind wandering counts as "attentive" here.
 The lecture paragraph is matched to time by word count, which is approximate. Full methods, the preregistration and
-all results: [project page](https://sayamrina.github.io/catch-the-drift/).
+all results are on the [project page](https://sayamrina.github.io/catch-the-drift/).
 """)
