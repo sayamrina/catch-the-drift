@@ -1,4 +1,4 @@
-"""Run the preregistered analyses H1-H7 (Part A) and write results/part_a.json."""
+"""Run the planned analyses H1-H7 (Part A) and write results/part_a.json."""
 import json
 import pickle
 from pathlib import Path

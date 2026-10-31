@@ -174,11 +174,11 @@ st.markdown(f"""
 **How good is the detector?** Not good. Across all {r['participants']} students in the self-report group, the 30 s
 before a report could not be told apart from other moments: AUC {r['auc']:.2f}, where 0.50 is chance, tested on students
 the model had never seen. Detector-triggered prompts landed within 30 s before a real report in {r['hit_triggered']:.0%}
-of cases, against {r['hit_fixed']:.0%} for a fixed schedule (preregistered test, p = {r['p_vs_fixed']:.3f}) but also
+of cases, against {r['hit_fixed']:.0%} for a fixed schedule (planned test, p = {r['p_vs_fixed']:.3f}) but also
 {r['hit_random']:.0%} for prompts at random times (exploratory, p = {r['p_vs_random']:.2f}). So the tutor timing in this
 demo is not better than chance; the demo shows how such a system would behave, not that it works.
 
 **Limits.** Self-reports only capture the moments students noticed; unreported mind wandering counts as "attentive" here.
-The lecture paragraph is matched to time by word count, which is approximate. Full methods, the preregistration and
+The lecture paragraph is matched to time by word count, which is approximate. Full methods, the study plan and
 all results are on the [project page](https://sayamrina.github.io/catch-the-drift/).
 """)

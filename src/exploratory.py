@@ -1,4 +1,4 @@
-"""Exploratory checks that were NOT preregistered (labelled as such everywhere they are reported)."""
+"""Exploratory checks that were NOT planned in advance (labelled as such everywhere they are reported)."""
 import json
 from pathlib import Path
 

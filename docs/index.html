@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Catch the Drift</title>
-<meta name="description" content="A preregistered test of whether eye movements reveal mind wandering during video lectures, and whether a tutor could use them to step in at the right moment.">
+<meta name="description" content="A pilot project testing whether eye movements reveal mind wandering during video lectures, and whether a tutor could use them to step in at the right moment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -168,7 +168,7 @@ footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top:
     <nav class="actions" aria-label="Project links">
       <a class="act primary" href="https://catch-the-drift.streamlit.app/" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span>Try the demo</a>
       <a class="act" href="https://github.com/sayamrina/catch-the-drift" target="_blank" rel="noopener">Code on GitHub</a>
-      <a class="act" href="https://github.com/sayamrina/catch-the-drift/blob/main/PREREGISTRATION.md" target="_blank" rel="noopener">Preregistration</a>
+      <a class="act" href="https://github.com/sayamrina/catch-the-drift/blob/main/STUDY_PLAN.md" target="_blank" rel="noopener">Study plan</a>
       <a class="act" href="https://sayamrina.github.io/" target="_blank" rel="noopener">Portfolio</a>
     </nav>
   </div>
@@ -195,7 +195,7 @@ footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top:
     <h2 id="question"><span class="tc" data-tc></span>The question</h2>
     <p>Mind wandering takes up a large share of the time people spend on any task (Smallwood and Schooler, 2015), and a video lecture leaves nobody to notice it: the video keeps playing while the student is elsewhere. An adaptive learning system could pause and ask a short catch-up question, but only if it knows when. Eye movements are a natural signal, because looking and thinking are tightly coupled while following slides, and webcams can now estimate gaze without special hardware.</p>
     <p>So the question has three parts. Can mind wandering be detected from gaze alone, for a student the system has never seen? How early? And if a tutor acts on the detector, does it step in at better moments than a tutor that simply asks at fixed times?</p>
-    <p>The nine hypotheses, features, models and tests were <a href="https://github.com/sayamrina/catch-the-drift/blob/main/PREREGISTRATION.md">written down and committed before any model was fitted</a>. Three deviations and two exploratory checks are logged in the same file.</p>
+    <p>The nine hypotheses, features, models and tests were <a href="https://github.com/sayamrina/catch-the-drift/blob/main/STUDY_PLAN.md">written down and committed before any model was fitted</a>. Three deviations and two exploratory checks are logged in the same file.</p>
 
     <h2 id="plain"><span class="tc" data-tc></span>How it works, in plain words</h2>
     <p>No statistics needed for this part. Here is what the project does, step by step.</p>
@@ -214,7 +214,7 @@ footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top:
       <dd>How likely a difference this large would be if there were really no difference. Below .05 is usually treated as "probably real".</dd>
       <dt>[0.42, 0.59]</dt>
       <dd>The range the true value probably lies in. When the range includes 0.50, the detector may well be guessing.</dd>
-      <dt>Preregistered</dt>
+      <dt>Planned in advance</dt>
       <dd>All predictions and tests were written down and saved before any analysis, so the results could not be bent to fit them afterwards.</dd>
     </dl>
 
@@ -267,7 +267,7 @@ footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top:
     <figure class="chart" id="fig-policy">
       <p class="title">Share of tutor prompts that came within 30 s before a student reported drifting</p>
       <svg id="policy" viewBox="0 0 660 160" role="img" aria-labelledby="policy-cap"></svg>
-      <figcaption id="policy-cap">67 students in the key-press group, 5.1 prompts each on average. Triggered vs fixed: preregistered Wilcoxon test, p = .026. Triggered vs random: exploratory, p = .36.</figcaption>
+      <figcaption id="policy-cap">67 students in the key-press group, 5.1 prompts each on average. Triggered vs fixed: planned Wilcoxon test, p = .026. Triggered vs random: exploratory, p = .36.</figcaption>
     </figure>
 
     <h3>What I take from it</h3>

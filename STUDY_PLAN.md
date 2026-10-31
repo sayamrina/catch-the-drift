@@ -1,4 +1,4 @@
-# Preregistration: Catch the Drift
+# Study plan: Catch the Drift
 
 Written 31 October 2026, before any model was fitted. At this point I had only counted participants, labels and recording lengths, checked that the probe times in the processed file match the paper, and read the authors' AOI definitions. Any later change is logged under "Deviations" at the end, with date and reason.
 
@@ -71,6 +71,6 @@ All hypotheses with effect sizes and confidence intervals, including those that 
 2. **H6/H7 scoring (31 October 2026, implementation detail not covered by the plan).** Lecture windows of the 4 self-caught participants who were excluded from A2 (fewer than 2 usable windows) and all probe-caught participants were scored by the model fitted on all of A2; they were never in its training data, so these scores are still person-independent. All other H6/H7 scores are out-of-fold.
 3. **Part B feature (31 October 2026, found after the first Part B run).** `horizontal_sacc` has no values in `group_features_end2_tp.csv` (right eye). The imputer silently dropped it, so the first run's coefficient names were shifted by one from that feature on; the AUC and permutation test were unaffected. The feature is now removed explicitly, the analysis was rerun, and the "horizontal moves" pair in H9 cannot be compared.
 
-## Exploratory analyses (not preregistered)
+## Exploratory analyses (not planned in advance)
 
-Added after seeing the Part A results, and labelled exploratory wherever they appear (`src/exploratory.py`): a participant bootstrap CI for the GRU AUC, and a Wilcoxon test of the triggered policy against the random schedule (the random schedule was preregistered as a reported baseline, but without a test).
+Added after seeing the Part A results, and labelled exploratory wherever they appear (`src/exploratory.py`): a participant bootstrap CI for the GRU AUC, and a Wilcoxon test of the triggered policy against the random schedule (the random schedule was planned in advance as a reported baseline, but without a test).

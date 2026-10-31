@@ -1,4 +1,4 @@
-"""The preregistered window features, and the fixation sequences for the GRU."""
+"""The planned window features, and the fixation sequences for the GRU."""
 import numpy as np
 import pandas as pd
 
@@ -44,7 +44,7 @@ def table(windows: list[dict], length: int = WINDOW_MS) -> pd.DataFrame:
 
 
 def apply_exclusions(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
-    """Preregistered: drop windows with <50% fixation coverage, then participants with <2 windows."""
+    """Planned: drop windows with <50% fixation coverage, then participants with <2 windows."""
     n0, p0 = len(df), df.pid.nunique()
     df = df[df.coverage >= 0.5]
     keep = df.pid.value_counts()

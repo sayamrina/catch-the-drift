@@ -1,17 +1,17 @@
 # Catch the Drift
 
-**Can eye movements tell a tutor when a student's mind wanders during a video lecture? A preregistered test on open data**
+**Can eye movements tell a tutor when a student's mind wanders during a video lecture? A pilot project on open data**
 
-[Project page](https://sayamrina.github.io/catch-the-drift/) · [Demo](https://catch-the-drift.streamlit.app/) · [Preregistration](PREREGISTRATION.md) · [Portfolio](https://sayamrina.github.io/)
+[Project page](https://sayamrina.github.io/catch-the-drift/) · [Demo](https://catch-the-drift.streamlit.app/) · [Study plan](STUDY_PLAN.md) · [Portfolio](https://sayamrina.github.io/)
 
 Students drift away during video lectures, and nobody notices. An adaptive system could pause and ask a short catch-up question, but only if it knows when. This project tests, on open eye-tracking data from 143 students, whether mind wandering can be detected from gaze for a student the system has never seen, how early, and whether a tutor that acts on the detector prompts at better moments than one that asks at fixed times.
 
-The nine hypotheses, the features, models and tests were written in [PREREGISTRATION.md](PREREGISTRATION.md) and committed before any model was fitted. Deviations and exploratory checks are logged in the same file.
+The nine hypotheses, the features, models and tests were written in [STUDY_PLAN.md](STUDY_PLAN.md) and committed before any model was fitted. Deviations and exploratory checks are logged in the same file.
 
 ## Short answer
 
 - **The detector does not work.** Summary features of 30 s of gaze could not separate the moments before a mind-wandering report from other moments (AUC 0.49 for key presses, 0.50 for probes; chance = 0.50).
-- **The tutor beat a fixed schedule, but not chance.** Detector-triggered prompts were better timed than evenly spaced ones (27% vs 21%, p = .026, as preregistered), but not better than prompts at random times (24%, exploratory p = .36).
+- **The tutor beat a fixed schedule, but not chance.** Detector-triggered prompts were better timed than evenly spaced ones (27% vs 21%, p = .026, as planned in advance), but not better than prompts at random times (24%, exploratory p = .36).
 - **The order of fixations may matter.** A small GRU on the raw fixation sequence reached AUC 0.57 (exploratory 95% CI 0.52–0.63), the one video result clearly above chance.
 - **In reading, gaze carries a weak signal.** On the ReMind data, the same kind of model detects the onset of mind wandering above chance (AUC 0.55, p = .001).
 
