@@ -78,7 +78,7 @@ def policy(g):
 def timeline(g, rep, trig, fixed, width=1100, height=220):
     img = Image.new("RGB", (width, height), "white")
     d = ImageDraw.Draw(img)
-    left, right, top, bottom = 40, width - 10, 18, height - 70
+    left, right, top, bottom = 40, width - 34, 18, height - 70
     T = max(g.end.max(), 1)
     sx = lambda t: left + (right - left) * t / T  # noqa: E731
     sy = lambda p: bottom - (bottom - top) * p  # noqa: E731

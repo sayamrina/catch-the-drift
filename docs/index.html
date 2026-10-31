@@ -95,6 +95,17 @@ svg .val { fill: var(--ink); font-size: 13px; font-weight: 600; }
 .tip { position: absolute; pointer-events: none; background: var(--board); color: var(--chalk); font: 14px/1.35 'Archivo Narrow', sans-serif; padding: 6px 9px; max-width: 260px; opacity: 0; }
 .tip.on { opacity: 1; }
 
+ol.steps { list-style: none; counter-reset: step; padding: 0; margin: 22px 0; }
+ol.steps > li { counter-increment: step; position: relative; padding: 0 0 18px 58px; }
+ol.steps > li::before { content: counter(step); position: absolute; left: 0; top: -6px; width: 40px; text-align: right;
+  font: 700 2.1rem/1 'Archivo Narrow', sans-serif; color: var(--drift); }
+ol.steps b, ol.key b { font-family: 'Archivo Narrow', sans-serif; font-size: 1.08em; }
+.plain { border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); padding: 6px 0 4px; margin: 26px 0; }
+.plain dt { margin-top: 12px; }
+ol.key { padding-left: 0; list-style: none; counter-reset: key; margin: 18px 0; }
+ol.key > li { counter-increment: key; position: relative; padding: 0 0 10px 42px; }
+ol.key > li::before { content: counter(key); position: absolute; left: 0; top: 2px; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--board); color: var(--chalk); font: 700 15px/28px 'Archivo Narrow', sans-serif; text-align: center; }
 figure.shot { margin: 28px 0; }
 figure.shot img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
 figure.shot figcaption { color: var(--muted); font-size: .9rem; padding-top: 6px; }
@@ -173,6 +184,27 @@ footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top:
     <p>So the question has three parts. Can mind wandering be detected from gaze alone, for a student the system has never seen? How early? And if a tutor acts on the detector, does it step in at better moments than a tutor that simply asks at fixed times?</p>
     <p>The nine hypotheses, features, models and tests were <a href="https://github.com/sayamrina/catch-the-drift/blob/main/PREREGISTRATION.md">written down and committed before any model was fitted</a>. Three deviations and two exploratory checks are logged in the same file.</p>
 
+    <h2 id="plain"><span class="tc" data-tc></span>How it works, in plain words</h2>
+    <p>No statistics needed for this part. Here is what the project does, step by step.</p>
+    <ol class="steps">
+      <li><b>Watch where the eyes go.</b> While a student watches the lecture, an eye tracker below the screen notes 60 times a second where on the screen they are looking. What matters are the short stops of the eyes, called fixations: that is when we take in what we see. In this study the eyes made about two such stops every second, on the slides, on the lecturer's face, or somewhere else.</li>
+      <li><b>Ask when the mind wandered.</b> Nobody can see a wandering mind from the outside, so the study asked the students themselves. Some pressed a key whenever they caught themselves thinking about something else; others were asked at four beeps during the lecture.</li>
+      <li><b>Cut the lecture into 30-second pieces.</b> Each piece is described with twelve simple numbers: how often the eyes stopped, how long each stop lasted, how much time went to the slides and how much to the lecturer, how far the eyes jumped, whether they moved left to right as in reading, and so on.</li>
+      <li><b>Let a computer look for a pattern.</b> A model learns from many students which pieces came just before someone said "my mind wandered". It is then tested only on students it has never seen, the way a rule a teacher learned in one class has to work in the next class too.</li>
+      <li><b>Score it fairly.</b> The score is AUC. Take one moment just before a student drifted and one ordinary moment, and ask the detector which one looks more like drifting. AUC is how often it picks the right one: 0.5 means it is guessing, like a coin toss; 1.0 means it is always right. Here it came out at 0.49.</li>
+      <li><b>Let a pretend tutor act on it.</b> Whenever the detector's score is high, the tutor would pause the video and ask a short question about what the lecturer just said. To see whether that timing is any good, the same number of questions is also placed on a fixed schedule and at random times, and for each we count how often the question came in the 30 seconds before the student said their mind had wandered.</li>
+    </ol>
+    <dl class="plain">
+      <dt>A result is "not supported"</dt>
+      <dd>The prediction I wrote down in advance did not come true. That is still a result: it tells the next person what does not work.</dd>
+      <dt>p = .026</dt>
+      <dd>How likely a difference this large would be if there were really no difference. Below .05 is usually treated as "probably real".</dd>
+      <dt>[0.42, 0.59]</dt>
+      <dd>The range the true value probably lies in. When the range includes 0.50, the detector may well be guessing.</dd>
+      <dt>Preregistered</dt>
+      <dd>All predictions and tests were written down and saved before any analysis, so the results could not be bent to fit them afterwards.</dd>
+    </dl>
+
     <h2 id="data"><span class="tc" data-tc></span>Data and methods</h2>
     <p class="src"><b>Video lectures: Wandering Eyes</b> (Zhang, Miller, Sun and Cortina, 2020; <a href="https://osf.io/ptj75/" target="_blank" rel="noopener">OSF</a>, CC-BY 4.0). 143 undergraduates watched a 19-minute Education or 22-minute Genetics lecture, slides plus instructor, while an Eye Tribe tracker recorded their gaze at 60 Hz. Half were asked four times, at a beep, whether their mind had wandered (272 answers, 87 yes). The other half pressed a key whenever they noticed it (815 presses). Everyone took a short test before and a longer one after.</p>
     <p class="src"><b>Reading: ReMind</b> (Sun, 2025; <a href="https://osf.io/ajme7/" target="_blank" rel="noopener">OSF</a>, CC-BY 4.0). 45 readers marked where in a text their mind had started to wander; the authors provide gaze features for the 2 seconds before each onset and before matched control points.</p>
@@ -231,10 +263,22 @@ footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top:
 
     <h2 id="demo"><span class="tc" data-tc></span>The demo</h2>
     <p>The <a href="https://catch-the-drift.streamlit.app/">demo</a> replays any of the 33 students who watched the Education lecture in the key-press group: the detector score over the whole lecture, the student's own reports, where the triggered and fixed tutors would have prompted, the fixations in the 30 seconds before each prompt, and the catch-up question the tutor would ask at that point. It says plainly when a prompt would have interrupted a student who reported nothing.</p>
+    <h3>Reading the demo</h3>
     <figure class="shot">
-      <img src="img/app.png" alt="Screenshot of the demo: a timeline of one student's detector score with reports and prompts, and a catch-up question card" loading="lazy" width="1300" height="1000">
-      <figcaption>The demo with Student 2 selected.</figcaption>
+      <img src="img/app_annotated.png" alt="Screenshot of the demo with Student 43 selected, with numbers 1 to 9 marking the parts explained below" loading="lazy" width="1110" height="935">
+      <figcaption>The demo with Student 43 selected, stepped to the tutor's prompt at 11:00.</figcaption>
     </figure>
+    <ol class="key">
+      <li><b>Pick a student.</b> Each one is a real participant of the study, known only by a number.</li>
+      <li><b>The red line</b> is the detector's guess, every 30 seconds, of how likely the student's mind is wandering. Higher means more likely. When it crosses the grey line, the tutor would step in.</li>
+      <li><b>Each black line</b> is a moment the student pressed the key: "I just noticed my mind had wandered". This is the truth the detector is trying to catch.</li>
+      <li><b>Blue triangles</b> are the moments the detector-driven tutor would ask a question. A triangle just before a black line is a well-timed prompt.</li>
+      <li><b>Grey circles</b> are the same number of questions on a fixed schedule, for comparison.</li>
+      <li><b>Step through the prompts</b> with the slider to see each of the tutor's moments in detail.</li>
+      <li><b>Where the eyes were</b> in the 30 seconds before that prompt, drawn on the lecture video. Each dot is one stop of the eyes, bigger dots are longer stops, and lines show the jumps between them. Here the eyes keep leaving the slides for the lecturer's face.</li>
+      <li><b>What happened:</b> whether the student really reported mind wandering within the next 30 seconds, or whether the question would have interrupted someone who was paying attention.</li>
+      <li><b>The catch-up question</b> the tutor would ask, written from the paragraph the lecturer was speaking at that moment. Open the line below it to see the answer and the original passage.</li>
+    </ol>
 
     <h2 id="limits"><span class="tc" data-tc></span>Limits</h2>
     <ul>
