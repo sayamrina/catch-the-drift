@@ -45,6 +45,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--prompt); outlin
 .byline { margin: 18px 0 0; color: var(--muted); font-size: .95rem; display: flex; gap: 12px; align-items: center; }
 .byline img { border-radius: 50%; flex: none; }
 
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; }
+.act { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px 10px; border: 2px solid var(--ink); color: var(--ink);
+  font: 600 1rem/1 'Archivo Narrow', sans-serif; text-decoration: none; }
+.act:hover { background: var(--ink); color: var(--bg); }
+.act.primary { background: var(--board); border-color: var(--board); color: var(--chalk); }
+.act.primary:hover { background: var(--drift); border-color: var(--drift); color: #fff; }
+.act .play { width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 9px solid currentColor; }
 .screen { margin: 0; }
 .screen .frame { position: relative; aspect-ratio: 1135 / 625; background: #000; border: 10px solid var(--board); border-bottom-width: 0; overflow: hidden; }
 .screen img, .screen canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -157,7 +164,13 @@ footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top:
   <div>
     <h1><span>Catch</span><span>the</span><span class="off">drift</span></h1>
     <p class="intro">Students drift away during video lectures, often without noticing. Can their eye movements tell a tutor when that happens, early enough to step in? I wrote down what I expected before fitting a single model, tested it on 143 students, and report what came out. Mostly, it was no.</p>
-    <p class="byline"><img src="img/amrina.jpg" alt="" width="44" height="44"><span><b>Amrina</b>, M.Sc. Educational Technology, Saarland University. Try the <a href="https://catch-the-drift.streamlit.app/" target="_blank" rel="noopener">demo</a>, read the <a href="https://github.com/sayamrina/catch-the-drift" target="_blank" rel="noopener">code</a> and the <a href="https://github.com/sayamrina/catch-the-drift/blob/main/PREREGISTRATION.md" target="_blank" rel="noopener">preregistration</a>, or see the <a href="https://sayamrina.github.io/">portfolio</a>.</span></p>
+    <p class="byline"><img src="img/amrina.jpg" alt="" width="44" height="44"><span><b>Amrina</b>, M.Sc. Educational Technology, Saarland University</span></p>
+    <nav class="actions" aria-label="Project links">
+      <a class="act primary" href="https://catch-the-drift.streamlit.app/" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span>Try the demo</a>
+      <a class="act" href="https://github.com/sayamrina/catch-the-drift" target="_blank" rel="noopener">Code on GitHub</a>
+      <a class="act" href="https://github.com/sayamrina/catch-the-drift/blob/main/PREREGISTRATION.md" target="_blank" rel="noopener">Preregistration</a>
+      <a class="act" href="https://sayamrina.github.io/" target="_blank" rel="noopener">Portfolio</a>
+    </nav>
   </div>
   <figure class="screen">
     <div class="frame">
@@ -262,7 +275,11 @@ footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top:
     <p>Two things are worth following up. The sequence model's advantage suggests that the order of fixations, for example a drift from the slides to the instructor and back without reading, holds information that averages throw away. And the self-report labels limit everything here: the comparison windows certainly contain mind wandering that nobody noticed, which pulls every detector towards chance.</p>
 
     <h2 id="demo"><span class="tc" data-tc></span>The demo</h2>
-    <p>The <a href="https://catch-the-drift.streamlit.app/">demo</a> replays any of the 33 students who watched the Education lecture in the key-press group: the detector score over the whole lecture, the student's own reports, where the triggered and fixed tutors would have prompted, the fixations in the 30 seconds before each prompt, and the catch-up question the tutor would ask at that point. It says plainly when a prompt would have interrupted a student who reported nothing.</p>
+    <p>The demo replays any of the 33 students who watched the Education lecture in the key-press group: the detector score over the whole lecture, the student's own reports, where the triggered and fixed tutors would have prompted, the fixations in the 30 seconds before each prompt, and the catch-up question the tutor would ask at that point. It says plainly when a prompt would have interrupted a student who reported nothing.</p>
+    <nav class="actions" aria-label="Demo links">
+      <a class="act primary" href="https://catch-the-drift.streamlit.app/" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span>Open the demo</a>
+      <a class="act" href="https://github.com/sayamrina/catch-the-drift/blob/main/app/streamlit_app.py" target="_blank" rel="noopener">Demo source code</a>
+    </nav>
     <h3>Reading the demo</h3>
     <figure class="shot">
       <img src="img/app_annotated.png" alt="Screenshot of the demo with Student 43 selected, with numbers 1 to 9 marking the parts explained below" loading="lazy" width="1110" height="935">
