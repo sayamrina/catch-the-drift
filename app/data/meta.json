@@ -1,0 +1,12 @@
+{
+ "threshold": 0.408,
+ "results": {
+  "participants": 71,
+  "auc": 0.489,
+  "hit_triggered": 0.27,
+  "hit_fixed": 0.207,
+  "hit_random": 0.239,
+  "p_vs_fixed": 0.0261,
+  "p_vs_random": 0.3578
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "gru_auc_ci95": [
+  0.523,
+  0.628
+ ],
+ "triggered_vs_random_wilcoxon_p": 0.3578,
+ "participants_triggered_better_than_fixed": 22,
+ "participants_fixed_better_than_triggered": 14,
+ "participants": 67
+}

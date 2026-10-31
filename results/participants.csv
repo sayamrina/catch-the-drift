@@ -1,0 +1,172 @@
+pid,mw_pred,SubjectName,age,gender,race,probe_type,video,PRE_TEST,POST_TEST,content,TE4,TE5
+probe_Education_s1,0.2980583852092941,s1,19.0,Female,East Asian,Probe-caught,Education,0.2,0.666666667,"I was never mind-wandering during a beep, but when I was, I was thinking about how I was going to chop house tonight. Also, I was hoping I would be on time to my 10am psychology class.",2.0,2.0
+probe_Education_s10,0.38475479154373976,s10,18.0,Female,White/European,Probe-caught,Education,0.6,0.555555556,Other classes. Homework I needed to do,2.0,2.0
+probe_Education_s11,0.34839616541808016,s11,19.0,Male,White/European,Probe-caught,Education,0.4,0.388888889,"Going home this weekend, Weekend Plans, Club meeting after this",4.0,2.0
+probe_Education_s12,0.3979784931175978,s12,20.0,Male,East Asian,Probe-caught,Education,0.2,0.444444444,Usually my mind was blank because I was falling asleep,4.0,5.0
+probe_Education_s14,0.3599941604830967,s14,18.0,Female,"Middle Eastern,White/European",Probe-caught,Education,0.6,0.555555556,"I thought about what time my next class started, what class it was, and what I should do with my gap of time before that next class starts.",1.0,2.0
+probe_Education_s15,0.3635512755658684,s15,19.0,Female,African American,Probe-caught,Education,0.6,0.611111111,"Thinking about food, old conversations my friends and I were having, and sometimes i just zoned out into space. ",2.0,3.0
+probe_Education_s16,0.2913355838970753,s16,20.0,Male,White/European,Probe-caught,Education,0.6,0.333333333,,4.0,4.0
+probe_Education_s17,0.37917606350515154,s17,18.0,Female,White/European,Probe-caught,Education,0.6,0.611111111,I'm tired,3.0,2.0
+probe_Education_s18,0.32727618183885165,s18,19.0,Male,White/European,Probe-caught,Education,0.4,0.5,"""I'm tired"", ""I am hungry"", ""It is really nice outside today""",5.0,4.0
+probe_Education_s19,0.3161518962872996,s19,18.0,Male,White/European,Probe-caught,Education,0.2,0.611111111,"I was thinking about my friend John from Germany, Sherlock Holmes when I saw the detective on one of the slides, and video games related to Germany.",2.0,3.0
+probe_Education_s20,0.38883119769896457,s20,21.0,Female,South Asian,Probe-caught,Education,0.2,0.666666667,"What I was going to do after this study, when I was going to sleep, my plans for later tonight. ",2.0,4.0
+probe_Education_s22,0.3517682367735574,s22,18.0,Male,White/European,Probe-caught,Education,0.6,0.833333333,Movie about a German education system I had seen in high school.,2.0,3.0
+probe_Education_s23,0.351187718668147,s23,18.0,Male,Middle Eastern,Probe-caught,Education,0.6,0.277777778,"When data was present that had Jordan in it, I thought about my family that lives in Jordan ",4.0,4.0
+probe_Education_s24,0.37890125511450634,s24,19.0,Male,White/European,Probe-caught,Education,0.2,0.388888889,"what practice was going to be like later, level of tiredness",4.0,4.0
+probe_Education_s25,0.3745551395494662,s25,19.0,Female,"White/European,Other",Probe-caught,Education,0.2,0.611111111,"How tired I was, just thinking about random things that I had to do",3.0,3.0
+probe_Education_s26,0.31209728587427027,s26,21.0,Female,White/European,Probe-caught,Education,0.6,0.722222222,"smudges on the screen, homework I have to do later",3.0,2.0
+probe_Education_s27,0.4676603526040105,s27,19.0,Female,White/European,Probe-caught,Education,0.4,0.722222222,"I heard a couple of noises behind me, so I was wondering what was going on behind me, I started thinking about a tv show I've been watching ",2.0,2.0
+probe_Education_s28,0.36317979880484424,s28,19.0,Female,White/European,Probe-caught,Education,0.6,0.5,What I was doing later in the night. When they mentioned certain things my mind would wander to different evens that happened related to what they were talking about but still completely took my focus off of the video. ,2.0,3.0
+probe_Education_s29,0.3147407734777758,s29,18.0,Female,White/European,Probe-caught,Education,0.4,0.444444444,I have had 6 hours back to back of class today so I was honestly thinking about how I am excited to sleep and excited to eat.,3.0,3.0
+probe_Education_s3,0.3557273120345373,s3,22.0,Male,White/European,Probe-caught,Education,0.6,0.777777778,Thinking about my next class,3.0,4.0
+probe_Education_s30,0.343540080611427,s30,20.0,Female,White/European,Probe-caught,Education,0.6,0.277777778,"spring break, shopping",4.0,5.0
+probe_Education_s32,0.35705711351220315,s32,19.0,Female,White/European,Probe-caught,Education,0.8,0.611111111,"I was thinking about the study, about the eye tracker, and about being watched.",3.0,4.0
+probe_Education_s33,0.3457330411912631,s33,19.0,Male,"Latino,White/European",Probe-caught,Education,0.4,0.833333333,"My mind did not wander that often. the only real time i was not focused or thinking about the lecture was when my phone alarm went off and it distracted me. After that i was distracted for a minute, but after became engaged with the lecture again.",1.0,2.0
+probe_Education_s34,0.3690799250506819,s34,19.0,Male,White/European,Probe-caught,Education,0.8,0.611111111,I thought about finding cough drops and water after the video because I have a cold. I also thought about when I was going to have lunch.,2.0,4.0
+probe_Education_s35,0.361701813728427,s35,18.0,Female,White/European,Probe-caught,Education,0.8,0.833333333,"What I was going to eat, how tired I was, the exam I have soon. ",2.0,2.0
+probe_Education_s36,0.37224626191599325,s36,18.0,Male,White/European,Probe-caught,Education,0.2,0.5,"Sleeping, what I had to do the rest of the day, my homework",3.0,4.0
+probe_Education_s37,0.3455310435615243,s37,19.0,Female,"Latino,White/European",Probe-caught,Education,0.8,0.722222222,"What I'm having for dinner, what I'm wearing out tonight",5.0,2.0
+probe_Education_s38,0.3954578313572278,s38,19.0,Male,South Asian,Probe-caught,Education,0.8,0.555555556,"What to eat when I got back to my room, homework that I have to complete before the end of the day, and how tired I am. ",5.0,4.0
+probe_Education_s4,0.38383049522640866,s4,21.0,Male,White/European,Probe-caught,Education,0.4,0.5,"future classes
+parents
+roommates
+ex-gf birthday",2.0,3.0
+probe_Education_s5,0.3532000490131178,s5,18.0,Female,White/European,Probe-caught,Education,0.4,0.666666667,about students from my school who were from Germany. also about my birthday this weekend. going to work after this survey,5.0,4.0
+probe_Education_s6,0.3650783342183216,s6,18.0,Female,White/European,Probe-caught,Education,0.6,0.944444444,,,
+probe_Education_s8,0.4096653612352451,s8,18.0,Male,White/European,Probe-caught,Education,0.8,0.5,"selling my basketball ticket for tonight's game, when i will study for my exam Tuesday, whether or not I will work out today.",4.0,4.0
+probe_Education_s9,0.3355248044730393,s9,20.0,Male,White/European,Probe-caught,Education,0.6,0.833333333,"Looking forward to what I was going to do later, mind-wandering to what I was mind-wandering to before this study",2.0,1.0
+probe_Genetics_s1,0.3302476605590608,s1,18.0,Female,African American,Probe-caught,Genetics,0.0,0.214285714,the temperature in the room and taking a nap later,3.0,4.0
+probe_Genetics_s10,0.357869474740529,s10,18.0,Male,White/European,Probe-caught,Genetics,0.0,0.142857143,"High school, old science classes",4.0,4.0
+probe_Genetics_s11,0.3553749422923389,s11,20.0,Female,White/European,Probe-caught,Genetics,0.0,0.5,"Spring Break, wanting coffee, etc. ",4.0,3.0
+probe_Genetics_s12,0.3194266627585107,s12,18.0,Female,African American,Probe-caught,Genetics,0.4,0.357142857,"What I was going to eat for dinner, when I was going to be picked up by my mother for spring break, what my sisters were doing, what i was going to do for spring break",2.0,3.0
+probe_Genetics_s13,0.31784269385624164,s13,19.0,Female,White/European,Probe-caught,Genetics,0.8,0.357142857,"what food I wanted to eat, what other homework I had to do after the lecture",2.0,3.0
+probe_Genetics_s15,0.286549779659807,s15,20.0,Female,White/European,Probe-caught,Genetics,0.4,0.428571429,"Usually it stemmed from the video's contents.  For example. when the instructor mentioned that reading to children can help reduce externalizing behaviors, I thought about the children in the family I worked for over the Summer who were very difficult to control and who did not like to read, and how reading to them may have benefited the both of us.  ",1.0,1.0
+probe_Genetics_s16,0.3391656358442474,s16,18.0,Male,Middle Eastern,Probe-caught,Genetics,0.4,0.357142857,What can I accomplish with the rest of the time that I have today.,3.0,3.0
+probe_Genetics_s17,0.33819664857881415,s17,18.0,Female,East Asian,Probe-caught,Genetics,0.4,0.285714286,"what i'm going to eat
+grades
+what i'm doing this weekend
+",5.0,5.0
+probe_Genetics_s18,0.2969357384250348,s18,20.0,Female,White/European,Probe-caught,Genetics,0.0,0.5,"About my schedule for tomorrow, professional recruiting events, my exam tomorrow, an attractive classmate asking me out. ",1.0,4.0
+probe_Genetics_s19,0.36497819784031765,s19,20.0,Male,White/European,Probe-caught,Genetics,0.2,0.357142857,"Sleep, lunch/food, my exams next week and how prepared I am for them currently (not very much)",4.0,4.0
+probe_Genetics_s2,0.2744433169951263,s2,19.0,Female,White/European,Probe-caught,Genetics,0.2,0.285714286,What my plans are for spring break,3.0,2.0
+probe_Genetics_s20,0.32222549976681697,s20,18.0,Male,White/European,Probe-caught,Genetics,0.0,0.285714286,"Eating breakfast, homework I have to do.",,
+probe_Genetics_s21,0.31710370749969474,s21,18.0,Female,White/European,Probe-caught,Genetics,0.6,0.285714286,"Classes i have later today, homework i have to do tonight, what my plans are for the weekend",,
+probe_Genetics_s24,0.33918293933575305,s24,19.0,Female,White/European,Probe-caught,Genetics,0.4,0.5,"When I could take a nap, wanting to get a coffee after this, my exam tomorrow",2.0,3.0
+probe_Genetics_s25,0.285341111755141,s25,19.0,Male,White/European,Probe-caught,Genetics,0.4,0.214285714,"How badly I want to nap.
+Girls. 
+Econ Exam tomorrow ",5.0,5.0
+probe_Genetics_s28,0.30819684740055786,s28,18.0,Male,Middle Eastern,Probe-caught,Genetics,0.6,0.5,My other homework.,1.0,3.0
+probe_Genetics_s29,0.32680659590428196,s29,19.0,Male,Latino,Probe-caught,Genetics,0.4,0.428571429,eating lunch,1.0,2.0
+probe_Genetics_s3,0.2843873877717767,s3,19.0,Female,White/European,Probe-caught,Genetics,0.4,0.5,how I did on my psych exam yesterday,2.0,2.0
+probe_Genetics_s30,0.2718099431989953,s30,19.0,Female,White/European,Probe-caught,Genetics,0.2,0.285714286,What I had to do after this study,3.0,4.0
+probe_Genetics_s31,0.3119364703005222,s31,18.0,Female,White/European,Probe-caught,Genetics,0.2,0.428571429,"work, basketball game, friends",4.0,5.0
+probe_Genetics_s32,0.339368083059985,s32,19.0,Male,East Asian,Probe-caught,Genetics,0.2,0.357142857,"how hungry/sleepy I am, about exam I just took, class later",4.0,4.0
+probe_Genetics_s34,0.391763384026473,s34,19.0,Female,White/European,Probe-caught,Genetics,0.2,0.214285714,"Plans for the weekend
+My friend is a fraternal twin so I was thinking about differences between her and her brother but then I just started thinking about the last time I saw her and my other friends",1.0,3.0
+probe_Genetics_s35,0.3715257547847585,s35,18.0,Male,"Latino,White/European",Probe-caught,Genetics,0.4,0.285714286,"i have to take a gateway exam for calc, i'm hungry",2.0,3.0
+probe_Genetics_s36,0.3361182307116664,s36,19.0,Male,White/European,Probe-caught,Genetics,0.2,0.214285714,I was focused on how attractie the teacher was mostly.,4.0,4.0
+probe_Genetics_s37,0.3429275878582196,s37,19.0,Female,White/European,Probe-caught,Genetics,0.4,0.5,"That I was tired, and I was wondering what I am going to have for dinner",2.0,5.0
+probe_Genetics_s38,0.2967372569860412,s38,20.0,Male,"African American,White/European",Probe-caught,Genetics,0.2,0.357142857,A girl who I have spoken to often and that I need to get some sleep,2.0,3.0
+probe_Genetics_s4,0.3240137112369125,s4,19.0,Male,White/European,Probe-caught,Genetics,0.0,0.5,I thought about seeing my friends coming up this weekend for spring break and what I'm doing tonight.,3.0,2.0
+probe_Genetics_s40,0.29691552837128765,s40,19.0,Male,White/European,Probe-caught,Genetics,0.6,0.428571429,"About my biology class in high school, my weekend plans, friends and family",1.0,1.0
+probe_Genetics_s41,0.3422139173564509,s41,19.0,Female,White/European,Probe-caught,Genetics,0.6,0.357142857,Sometimes I thought about what my plan was after this study. (Trying to decide if I should go to the Union or back to my dorm.),2.0,3.0
+probe_Genetics_s42,0.3161215983913559,s42,19.0,Female,East Asian,Probe-caught,Genetics,0.2,0.142857143,meeting up with my friends after this study,3.0,4.0
+probe_Genetics_s5,0.3515121970565121,s5,18.0,Male,White/European,Probe-caught,Genetics,0.4,0.142857143,,3.0,3.0
+probe_Genetics_s6,0.31884538401859697,s6,,,,Probe-caught,Genetics,0.0,0.357142857,"What am I going to be doing after this?
+",4.0,4.0
+probe_Genetics_s8,0.3244032917045862,s8,19.0,Male,White/European,Probe-caught,Genetics,0.4,0.357142857,"Spring Break, the weather today, how hungry I am",4.0,4.0
+probe_Genetics_s9,0.27692874481680624,s9,17.0,Female,African American,Probe-caught,Genetics,0.4,0.357142857,I thought about spring break and I also thought about the homework that I have to do tonight.,3.0,4.0
+self_Education_s10,0.41486450688898885,s10,18.0,Female,White/European,Self-caught,Education,0.8,0.611111111,"Homework I have to do, meetings I have to go to, etc",3.0,4.0
+self_Education_s11,0.23293766210799824,s11,19.0,Male,Latino,Self-caught,Education,0.4,0.333333333,"Back home, What I was going to eat after, and cars.",4.0,4.0
+self_Education_s12,0.34980135629836334,s12,19.0,Female,South Asian,Self-caught,Education,0.4,0.5,,,
+self_Education_s13,0.3391794406843784,s13,20.0,Male,East Asian,Self-caught,Education,0.8,0.611111111,If I was forgetting something at home.,4.0,3.0
+self_Education_s14,0.35925590761717063,s14,19.0,Female,White/European,Self-caught,Education,0.6,0.666666667,My boyfriend,1.0,2.0
+self_Education_s15,0.3358561765004649,s15,21.0,Male,"Middle Eastern,South Asian",Self-caught,Education,0.6,0.666666667,"Dinner, politics, american education system",5.0,2.0
+self_Education_s16,0.3642210660168603,s16,20.0,Male,White/European,Self-caught,Education,0.4,0.722222222,"international studies, going back to bed",5.0,3.0
+self_Education_s17,0.3230850468725045,s17,18.0,Male,South Asian,Self-caught,Education,0.4,0.388888889,"Being Tired, Who texted me, where am I going to eat today? ",3.0,3.0
+self_Education_s18,0.4073643660561668,s18,18.0,Female,White/European,Self-caught,Education,0.8,0.666666667,"How hungry I was
+How much homework I had to do after this",4.0,4.0
+self_Education_s19,0.3655047052765889,s19,19.0,Female,White/European,Self-caught,Education,0.4,0.611111111,"About how long I would have to go to the gym before my next class.
+About my dream from last night.
+About what I would wear tonight.",5.0,3.0
+self_Education_s2,0.39088014321776676,s2,18.0,Female,"Latino,White/European",Self-caught,Education,0.2,0.722222222,"Food 
+Class
+Going to the gym ",2.0,4.0
+self_Education_s20,0.39306652487096605,s20,18.0,Male,African American,Self-caught,Education,0.4,0.444444444,"The breakfast I did not eat this morning
+I forgot to wash clothes yesterday
+My meeting after this study",3.0,4.0
+self_Education_s21,0.27079025754845304,s21,19.0,Female,White/European,Self-caught,Education,0.2,0.611111111,"I was thinking about conversations and stories that a friend told me yesterday, such as news about her family and friends.",2.0,3.0
+self_Education_s23,0.31421599472102085,s23,18.0,Female,White/European,Self-caught,Education,0.6,0.777777778,mostly about how i didn't get enough sleep last night,2.0,4.0
+self_Education_s24,0.37234084899446945,s24,18.0,Male,White/European,Self-caught,Education,0.8,0.388888889,What I'm going to do later today,4.0,4.0
+self_Education_s25,0.3694844127607868,s25,19.0,Female,White/European,Self-caught,Education,0.2,0.555555556,"'-what I am doing after this study
+-where I am eating tonight",2.0,4.0
+self_Education_s26,0.3579386929557186,s26,18.0,Female,White/European,Self-caught,Education,0.6,0.5,I was thinking about how tired I was ,3.0,2.0
+self_Education_s28,0.3363752562147237,s28,18.0,Female,White/European,Self-caught,Education,0.4,0.555555556,"Sleeping
+My exam later tonight",4.0,5.0
+self_Education_s29,0.31640341615739676,s29,20.0,Male,South Asian,Self-caught,Education,0.4,0.444444444,,,
+self_Education_s29,0.31640341615739676,s29,20.0,Male,White/European,Self-caught,Education,0.4,0.444444444,,,
+self_Education_s30,0.34799038479235445,s30,18.0,Female,White/European,Self-caught,Education,0.2,0.333333333,"Vacation in Europe, dinner, how tired I am",2.0,4.0
+self_Education_s31,0.3293950939416144,s31,18.0,Female,White/European,Self-caught,Education,0.8,0.555555556,,4.0,3.0
+self_Education_s32,0.3758434465363954,s32,18.0,Female,White/European,Self-caught,Education,0.6,0.555555556,"I'm visiting my boyfriend tonight, if my roommate will be home when I get back, should I walk or take the bus to the gym after this study, I am tired ",3.0,3.0
+self_Education_s33,0.32723896162725213,s33,18.0,Female,South Asian,Self-caught,Education,0.8,0.611111111,"I was thinking about what time I would go eat lunch, what work I had to do this weekend, and also what time I would go back to my dorm. ",3.0,3.0
+self_Education_s34,0.3947665831134483,s34,19.0,Female,White/European,Self-caught,Education,0.4,0.611111111,"how tired I was, what i am doing after this, what im doing this weekend",4.0,3.0
+self_Education_s35,0.3684464146462876,s35,18.0,Female,White/European,Self-caught,Education,0.8,0.555555556,"I was thinking about how much sleep I had last night, wondering why my phone vibrated, thought about my math quiz ",5.0,3.0
+self_Education_s37,0.3424193635736698,s37,19.0,Female,White/European,Self-caught,Education,0.6,0.5,The rest of my day like where I have to go after this and what i will be eating for lunch,3.0,4.0
+self_Education_s38,0.4272619385083077,s38,18.0,Female,White/European,Self-caught,Education,0.2,0.833333333,"I was thinking about getting to my next class on time, and making sure that I have enough time to get to that building",2.0,2.0
+self_Education_s4,0.3864991767423273,s4,19.0,Female,White/European,Self-caught,Education,0.4,0.444444444,"What I was going to do for lunch, my friends, clothes and wash that I have to do",3.0,3.0
+self_Education_s40,0.28132641264048786,s40,18.0,Female,White/European,Self-caught,Education,0.4,0.833333333,,2.0,4.0
+self_Education_s41,0.34196277638678657,s41,19.0,Female,White/European,Self-caught,Education,0.8,0.666666667,"food, coffee, my dog, friends",1.0,2.0
+self_Education_s43,0.32328942645148057,s43,19.0,Female,White/European,Self-caught,Education,0.6,0.666666667,I was thinking about what I'm doing tonight and an exam I have next week. ,3.0,3.0
+self_Education_s45,0.3393101160905437,s45,18.0,Female,White/European,Self-caught,Education,0.6,0.833333333,"I was thinking about going to the gym with my friend after this study, whether or not she had seen my text before I left our dorm, where we are going to meet up, and what I am doing later tonight. ",4.0,4.0
+self_Education_s5,0.4076907915627607,s5,21.0,Female,White/European,Self-caught,Education,0.6,0.611111111,"What I had to do right after this experiment.
+How sleepy I am due to waking up early. ",2.0,3.0
+self_Education_s6,0.4048366873743531,s6,19.0,Male,White/European,Self-caught,Education,0.8,0.833333333,Some of the things I had to do today,3.0,2.0
+self_Education_s8,0.36695808588511497,s8,20.0,Male,White/European,Self-caught,Education,0.4,0.666666667,I could really use a cup of coffee right now; I should have gotten more sleep last night; I wonder if I'll be able to make it to psych lecture on time,4.0,3.0
+self_Education_s9,0.38194346333100276,s9,18.0,Male,South Asian,Self-caught,Education,0.6,0.777777778,"I was thinking about homework, other countries that might have taken part in the PISA test, why the USA was around average as well",1.0,3.0
+self_Genetics_s1,0.301975275215176,s1,19.0,Male,Middle Eastern,Self-caught,Genetics,0.4,0.5,"Once I looked up and saw the Chinese characters on the poster above my head and briefly thought about identifying the character in its specific language.
+There was one slide that showed a picture a woman jumping with balloons in her hand on a beach with the ocean in the background. That briefly made me think about the beach and how I wish to go back soon.
+I forgot the third instance.",2.0,2.0
+self_Genetics_s10,0.2554883619300419,s10,19.0,,White/European,Self-caught,Genetics,0.6,0.571428571,"my mother and father, a specific comic book, a story i've been writing, a joke",2.0,3.0
+self_Genetics_s11,0.5063492012148366,s11,20.0,Male,White/European,Self-caught,Genetics,0.2,0.357142857,"It got hot in the room. 
+The student next to me finished so I wondered if she had a different video than I had. ",1.0,1.0
+self_Genetics_s13,0.3287043166744268,s13,18.0,Female,White/European,Self-caught,Genetics,0.2,0.428571429,"For one instance I was thinking about which route I should take out of the building and to my next class. Another time I was thinking about being tired, then thought about getting coffee.",4.0,4.0
+self_Genetics_s14,0.33363224809295333,s14,18.0,Male,White/European,Self-caught,Genetics,0.4,0.5,"I thought about what my schedule looked like for the rest of the night, quick flashback to all the fun I had in Europe last year",2.0,2.0
+self_Genetics_s15,0.31314152446226734,s15,21.0,Male,White/European,Self-caught,Genetics,0.4,0.285714286,"I was thinking of my class schedule today, when I was going to have lunch, what my weekend plans were, and when I was going to workout.",5.0,4.0
+self_Genetics_s16,0.328352589895153,s16,20.0,Male,White/European,Self-caught,Genetics,0.6,0.142857143,I was relating the video to personal examples and sometimes my eyes would wander off screen,3.0,3.0
+self_Genetics_s17,0.2863928089313428,s17,19.0,Female,I prefer not to answer,Self-caught,Genetics,0.0,0.357142857,"heard researcher speaking to another participant, which was distracting",3.0,3.0
+self_Genetics_s18,0.37912506387670114,s18,20.0,Female,White/European,Self-caught,Genetics,0.4,0.214285714,"What I am going to do at lacrosse practice today, What questions I will have to answer for an interview I just found out about, When I was going to eat lunch.",4.0,4.0
+self_Genetics_s19,0.401818938710904,s19,18.0,Female,White/European,Self-caught,Genetics,0.6,0.285714286,Thinking about what I'm doing after this,2.0,2.0
+self_Genetics_s20,0.3701968234129878,s20,18.0,Female,East Asian,Self-caught,Genetics,0.6,0.5,Its hard to sit so still for this long. ,2.0,3.0
+self_Genetics_s21,0.3326963275862701,s21,18.0,Female,White/European,Self-caught,Genetics,0.2,0.428571429,"what I was going to do later, classes",3.0,3.0
+self_Genetics_s22,0.3566418220213256,s22,20.0,Female,African American,Self-caught,Genetics,0.4,0.428571429,"plans for tonight 
+my friend brought me breakfast this morning
+family",5.0,4.0
+self_Genetics_s23,0.3015549930623946,s23,18.0,Male,White/European,Self-caught,Genetics,0.4,0.357142857,I thought about what I was going to do tonight. I thought about where I was going to eat with my friends after this experiment.  ,5.0,3.0
+self_Genetics_s24,0.32182010275772843,s24,18.0,Female,White/European,Self-caught,Genetics,0.6,0.357142857,,3.0,4.0
+self_Genetics_s25,0.28629059299990284,s25,18.0,Female,South Asian,Self-caught,Genetics,0.0,0.5,,2.0,3.0
+self_Genetics_s26,0.42127654650059343,s26,18.0,Female,East Asian,Self-caught,Genetics,0.6,0.428571429,"How i want to go to sleep with long weekend
+What plans to do tonight for fun 
+Excited for celebration tomorrow",3.0,4.0
+self_Genetics_s27,0.3380869557445457,s27,19.0,Male,Latino,Self-caught,Genetics,0.6,0.357142857,"What I have to do after this study, What time I'm getting home tonight",4.0,3.0
+self_Genetics_s28,0.32446755570275326,s28,20.0,Female,South Asian,Self-caught,Genetics,0.4,0.357142857,"How tired I was, when the video was about to end",4.0,5.0
+self_Genetics_s29,0.09040310865376147,s29,19.0,Female,White/European,Self-caught,Genetics,0.2,0.5,"My plans after this experiment
+Different uncomforts my body had while watching video 
+Different interactions I have had or might have with friends ",2.0,4.0
+self_Genetics_s3,0.3510900632374079,s3,18.0,Male,South Asian,Self-caught,Genetics,0.2,0.5,Nothing. Just trying not to sleep.,5.0,5.0
+self_Genetics_s30,0.3365269748733149,s30,21.0,Female,White/European,Self-caught,Genetics,0.4,0.428571429,"My plans for the rest of the day, homework, etc",4.0,4.0
+self_Genetics_s31,0.2862844296811616,s31,21.0,Female,White/European,Self-caught,Genetics,0.4,0.357142857,"Food, my plans after the study, the limitations of learning disabilities (namely central auditory processing disorders) when watching lectures and how it can be very frustrating to make sense of the content before the instructor moves on from it",3.0,3.0
+self_Genetics_s33,0.2932484032267431,s33,18.0,Female,African American,Self-caught,Genetics,0.6,0.214285714,What game I might play later with friends. Thinking about how the eye tracker worked.,2.0,3.0
+self_Genetics_s34,0.3003002840834973,s34,21.0,Male,White/European,Self-caught,Genetics,0.4,0.285714286,"My friends, past experiences, and this weekend.",2.0,2.0
+self_Genetics_s35,0.3449049746101055,s35,19.0,Male,White/European,Self-caught,Genetics,0.4,0.428571429,"How I will do in my case interview tomorrow, how tired I am, I need more sleep",3.0,3.0
+self_Genetics_s36,0.363779163845873,s36,18.0,Female,I prefer not to answer,Self-caught,Genetics,0.0,0.214285714,"what i have to do today, classes and if i did all the work, mass meetings",5.0,5.0
+self_Genetics_s37,0.24703509029115495,s37,18.0,Female,"East Asian,South Asian",Self-caught,Genetics,0.2,0.5,I was thinking about getting to my next lecture on time to get a seat in the front. I thought about visiting my sister in New York over Fall Break. I thought about whether the eye tracker could see my eyes if my hands were covering part of my face. ,3.0,3.0
+self_Genetics_s38,0.32803182124087366,s38,19.0,Female,White/European,Self-caught,Genetics,0.2,0.571428571,"Eating for lunch, friends from home ",2.0,3.0
+self_Genetics_s39,0.30816205974294564,s39,18.0,Female,White/European,Self-caught,Genetics,0.2,0.071428571,"being tired, if I should go to discussion after this ",4.0,4.0
+self_Genetics_s41,0.29952848305101026,s41,19.0,Female,White/European,Self-caught,Genetics,0.0,0.428571429,"about psych lecture, about dinner, about what i am immediately doing after this study, about my mom",2.0,3.0
+self_Genetics_s42,0.2839964528628119,s42,19.0,Female,White/European,Self-caught,Genetics,0.4,0.357142857,"When the Instructor said ""building blocks"" in reference to the nucleotides that make up DNA, I thought of a structure made of Mega Blocks that I made of a long time ago.
+About half way through the video I became aware of the fact that I was shaking my leg while watching the video and was worried that it may have shook the table and messed up the eye tracking for the study.
+About 3/4 of the way into the video I started to think that I should go purchase some milk after this study.",4.0,5.0
+self_Genetics_s43,0.35350155372354986,s43,20.0,Male,South Asian,Self-caught,Genetics,0.4,0.428571429,,,
+self_Genetics_s43,0.35350155372354986,s43,20.0,Male,White/European,Self-caught,Genetics,0.4,0.428571429,,,
+self_Genetics_s5,0.3001915633197787,s5,18.0,Female,White/European,Self-caught,Genetics,0.4,0.5,"I was thinking about breakfast, then I thought about being stressed about homework for my class after this, then I thought about my friend, and then my weekend",2.0,3.0
+self_Genetics_s6,0.3273585230654792,s6,18.0,Female,White/European,Self-caught,Genetics,0.2,0.214285714,,5.0,4.0

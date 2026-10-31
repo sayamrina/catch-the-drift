@@ -1,0 +1,150 @@
+{
+ "exclusions": {
+  "A1": {
+   "windows_before": 272,
+   "windows_after": 168,
+   "participants_before": 68,
+   "participants_after": 49
+  },
+  "A2_lag0": {
+   "windows_before": 2349,
+   "windows_after": 1698,
+   "participants_before": 75,
+   "participants_after": 71
+  },
+  "A2_lag5": {
+   "windows_before": 2349,
+   "windows_after": 1701,
+   "participants_before": 75,
+   "participants_after": 71
+  },
+  "A2_lag10": {
+   "windows_before": 2349,
+   "windows_after": 1714,
+   "participants_before": 75,
+   "participants_after": 71
+  },
+  "A2_lag20": {
+   "windows_before": 2349,
+   "windows_after": 1718,
+   "participants_before": 75,
+   "participants_after": 71
+  },
+  "A2_lag30": {
+   "windows_before": 2349,
+   "windows_after": 1712,
+   "participants_before": 75,
+   "participants_after": 70
+  }
+ },
+ "H1": {
+  "logreg": {
+   "auc_roc": 0.499,
+   "auc_pr": 0.3,
+   "base_rate": 0.292,
+   "n": 168,
+   "ci95": [
+    0.42,
+    0.592
+   ],
+   "perm_p": 0.3836163836163836
+  },
+  "forest": {
+   "auc_roc": 0.578,
+   "auc_pr": 0.385,
+   "base_rate": 0.292,
+   "n": 168
+  }
+ },
+ "H2": {
+  "logreg": {
+   "auc_roc": 0.489,
+   "auc_pr": 0.334,
+   "base_rate": 0.34,
+   "n": 1698,
+   "ci95": [
+    0.418,
+    0.56
+   ],
+   "perm_p": 0.5734265734265734
+  },
+  "forest": {
+   "auc_roc": 0.539,
+   "auc_pr": 0.396,
+   "base_rate": 0.34,
+   "n": 1698
+  },
+  "coefficients": {
+   "fix_rate": -0.701,
+   "dur_mean": 0.013,
+   "dur_median": -0.111,
+   "dur_sd": -0.25,
+   "long_prop": -0.152,
+   "teacher_prop": -0.051,
+   "out_prop": 0.034,
+   "slide_dispersion": -0.302,
+   "step_mean": 0.015,
+   "step_sd": 0.107,
+   "horizontal_prop": -0.024,
+   "coverage": 0.588
+  }
+ },
+ "H3": {
+  "lag_s": [
+   0,
+   5,
+   10,
+   20,
+   30
+  ],
+  "auc": [
+   0.489,
+   0.479,
+   0.442,
+   0.447,
+   0.472
+  ],
+  "spearman_rho": -0.6,
+  "p": 0.285
+ },
+ "H5": {
+  "Education->Genetics": {
+   "transfer_auc": 0.481,
+   "within_auc": 0.533
+  },
+  "Genetics->Education": {
+   "transfer_auc": 0.452,
+   "within_auc": 0.586
+  }
+ },
+ "H4": {
+  "gru": {
+   "auc_roc": 0.575,
+   "auc_pr": 0.41,
+   "base_rate": 0.34,
+   "n": 1698
+  },
+  "logreg": {
+   "auc_roc": 0.489,
+   "auc_pr": 0.334,
+   "base_rate": 0.34,
+   "n": 1698
+  },
+  "difference_auc": 0.085
+ },
+ "H6": {
+  "partial_r": 0.156,
+  "p_one_sided": 0.9669,
+  "n": 140,
+  "raw_r": 0.22
+ },
+ "H7": {
+  "threshold": 0.408,
+  "participants": 67,
+  "mean_prompts": 5.13,
+  "hit_share_triggered": 0.27,
+  "hit_share_fixed": 0.207,
+  "hit_share_random": 0.239,
+  "wilcoxon_p": 0.0261
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "A1": {
+  "windows_before": 272,
+  "windows_after": 168,
+  "participants_before": 68,
+  "participants_after": 49
+ },
+ "A2_lag0": {
+  "windows_before": 2349,
+  "windows_after": 1698,
+  "participants_before": 75,
+  "participants_after": 71
+ },
+ "A2_lag5": {
+  "windows_before": 2349,
+  "windows_after": 1701,
+  "participants_before": 75,
+  "participants_after": 71
+ },
+ "A2_lag10": {
+  "windows_before": 2349,
+  "windows_after": 1714,
+  "participants_before": 75,
+  "participants_after": 71
+ },
+ "A2_lag20": {
+  "windows_before": 2349,
+  "windows_after": 1718,
+  "participants_before": 75,
+  "participants_after": 71
+ },
+ "A2_lag30": {
+  "windows_before": 2349,
+  "windows_after": 1712,
+  "participants_before": 75,
+  "participants_after": 70
+ }
+}

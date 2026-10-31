@@ -1,0 +1,50 @@
+{
+ "empty_features_dropped": [
+  "horizontal_sacc"
+ ],
+ "n_windows": 2211,
+ "n_readers": 45,
+ "H8": {
+  "auc_roc": 0.545,
+  "auc_pr": 0.497,
+  "base_rate": 0.455,
+  "perm_p": 0.000999000999000999
+ },
+ "H8_with_pupil_blink": {
+  "auc_roc": 0.541
+ },
+ "coefficients": {
+  "fix_num": 0.231,
+  "norm_fix_word_num": -0.569,
+  "norm_in_word_reg": 0.115,
+  "norm_out_word_reg": -0.019,
+  "norm_total_viewing": 0.071,
+  "fix_dispersion": -0.042,
+  "sacc_num": 0.175,
+  "sacc_length": -0.061,
+  "zipf_fixdur_corr": -0.059,
+  "word_length_fixdur_corr": -0.004
+ },
+ "H9": {
+  "fixation count / rate": {
+   "reading": 0.231,
+   "video": -0.701,
+   "agree": false
+  },
+  "dispersion": {
+   "reading": -0.042,
+   "video": -0.302,
+   "agree": true
+  },
+  "saccade length / step": {
+   "reading": -0.061,
+   "video": 0.015,
+   "agree": false
+  },
+  "horizontal moves": {
+   "reading": null,
+   "video": -0.024,
+   "agree": null
+  }
+ }
+}
