@@ -51,6 +51,16 @@ Number of fixations per second; mean, median and SD of fixation duration; propor
 - **H6 (link to learning):** a participant's mean out-of-fold predicted probability of mind wandering across all 30 s windows of the lecture correlates negatively with the post-test score, controlling for the pre-test (partial correlation, one-sided, all participants with data).
 - **H7 (when to prompt):** in a simulation on A2, a detector-triggered policy (prompt when out-of-fold probability exceeds the participant-independent threshold, then wait at least 60 s) places a larger share of its prompts in the 30 s before a real self-caught report than a fixed schedule with the same number of prompts per participant (paired Wilcoxon, one-sided). A random schedule with the same count is reported as a second baseline. The threshold is the 80th percentile of out-of-fold scores, fixed now.
 
+## Amendment 1: Part B plan (31 October 2026, before fitting any Part B model)
+
+Written after reading the column names, label counts and window durations of the ReMind group files, and after seeing the authors' own AUC file (`comparison_permutation_test_results.csv`, their AUCs of about .62 to .65). I have not related any gaze feature to the labels myself.
+
+- **Data:** `group_features_end2_tp.csv`, the 2 s window that ends at a mind-wandering onset (positive) or at a matched control point (negative); 45 readers, 2,211 windows, right eye. Label = `is_MWreported`.
+- **Features:** gaze only, chosen to match Part A as closely as the files allow: `fix_num`, `norm_fix_word_num`, `norm_in_word_reg`, `norm_out_word_reg`, `norm_total_viewing`, `fix_dispersion`, `sacc_num`, `sacc_length`, `horizontal_sacc`, `zipf_fixdur_corr`, `word_length_fixdur_corr`. Pupil and blink features are added only in a secondary model.
+- **H8:** the primary model (same L2 logistic regression, 10-fold grouped by reader) detects mind-wandering onset in reading above chance (AUC-ROC > .5, permutation test, 1,000 shuffles).
+- **H9 (exploratory, descriptive):** for the features that exist in both parts (fixation count/rate, dispersion, saccade length, horizontal moves), I compare the sign of the standardised coefficient between reading (B) and the video lecture (A2). No test; reported as agree or disagree.
+- Missing values are imputed with the median inside each training fold, as in Part A.
+
 ## What I will report regardless of outcome
 
 All hypotheses with effect sizes and confidence intervals, including those that fail; numbers of excluded windows and participants; base rates next to every AUC-PR.
