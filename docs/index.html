@@ -7,95 +7,132 @@
 <meta name="description" content="A preregistered test of whether eye movements reveal mind wandering during video lectures, and whether a tutor could use them to step in at the right moment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #ECEEF4; --surface: #ffffff; --ink: #1B2240; --muted: #50587A; --rule: #D2D6E4;
-  --drift: #D9462E; --prompt: #2563EB; --track: #9AA1BC;
+  --bg: #E7ECE8; --paper: #F3F6F3; --ink: #17312B; --muted: #4D635C; --rule: #C3CEC8;
+  --board: #17312B; --chalk: #E9F0EC;
+  --drift: #C93D24; --prompt: #2257D6; --gaze: #7E948C;
+  --rail: 168px;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --bg: #141826; --surface: #1C2132; --ink: #E7EAF4; --muted: #A7AEC6; --rule: #2D3450;
-    --drift: #E8573C; --prompt: #4F7EF0; --track: #5D6585; }
+  :root:not([data-theme="light"]) { --bg: #0F1E1A; --paper: #15281F; --ink: #E3ECE7; --muted: #A2B6AE; --rule: #2B4139;
+    --board: #0A1512; --chalk: #E3ECE7; --drift: #E8573C; --prompt: #4F7EF0; --gaze: #6F877F; }
 }
-:root[data-theme="dark"] { --bg: #141826; --surface: #1C2132; --ink: #E7EAF4; --muted: #A7AEC6; --rule: #2D3450;
-  --drift: #E8573C; --prompt: #4F7EF0; --track: #5D6585; }
+:root[data-theme="dark"] { --bg: #0F1E1A; --paper: #15281F; --ink: #E3ECE7; --muted: #A2B6AE; --rule: #2B4139;
+  --board: #0A1512; --chalk: #E3ECE7; --drift: #E8573C; --prompt: #4F7EF0; --gaze: #6F877F; }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.62 'Public Sans', system-ui, sans-serif; }
-a { color: var(--prompt); text-underline-offset: 2px; }
-a:focus-visible, button:focus-visible { outline: 3px solid var(--prompt); outline-offset: 2px; border-radius: 4px; }
-h1, h2, h3 { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; letter-spacing: -0.01em; }
-code { font-size: .88em; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 0 4px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 19px/1.66 'Spectral', Georgia, serif; }
+a { color: inherit; text-decoration-color: var(--prompt); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--prompt); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--prompt); outline-offset: 3px; }
+.narrow { font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; }
+.tc { font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; font-weight: 600; font-variant-numeric: tabular-nums; }
 
-.project-popup { display: flex; align-items: center; gap: 12px; width: fit-content; max-width: calc(100% - 32px); margin: 16px auto 0;
-  padding: 8px 10px 8px 14px; background: var(--surface); color: var(--ink); font-size: 15px; border: 1px solid var(--rule);
-  border-left: 4px solid var(--drift); border-radius: 10px; }
-.project-popup a { padding: 6px 12px; background: var(--ink); color: var(--bg); font-weight: 700; text-decoration: none; border-radius: 7px; white-space: nowrap; }
-@media (max-width: 560px) { .project-popup { flex-wrap: wrap; } }
+/* portfolio notice (fixed content, cannot be closed) */
+.project-popup { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 14px; padding: 9px 16px;
+  background: var(--board); color: var(--chalk); font: 500 15px/1.4 'Archivo Narrow', sans-serif; text-align: center; }
+.project-popup a { color: var(--chalk); font-weight: 700; text-decoration-color: var(--drift); }
 
-.hero { max-width: 1160px; margin: 0 auto; padding: 44px 16px 12px; }
-.hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1; margin: 0 0 16px; }
-.hero .lede { max-width: 58ch; margin: 0 0 18px; color: var(--muted); font-size: 1.12rem; }
-.author { display: flex; gap: 12px; align-items: center; margin: 0 0 18px; }
-.author img { border-radius: 50%; }
-.author .byline { color: var(--muted); font-size: .92rem; }
-.links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
-.btn { display: inline-block; padding: 9px 16px; border-radius: 8px; font-weight: 700; font-size: .95rem; text-decoration: none; border: 2px solid var(--ink); color: var(--ink); }
-.btn.primary { background: var(--ink); color: var(--bg); }
+/* opening: the title and the lecture screen */
+.opening { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: end;
+  max-width: 1280px; margin: 0 auto; padding: 56px 24px 28px; }
+.opening h1 { font: 700 clamp(4rem, 10vw, 8.6rem)/.84 'Archivo Narrow', sans-serif; letter-spacing: -.035em; margin: 0 0 26px; }
+.opening h1 span { display: block; }
+.opening h1 .off { color: var(--drift); transform: translateX(.18em) rotate(-2.5deg); transform-origin: left bottom; }
+.opening .intro { margin: 0; max-width: 34ch; font-size: 1.06rem; }
+.byline { margin: 18px 0 0; color: var(--muted); font-size: .95rem; display: flex; gap: 12px; align-items: center; }
+.byline img { border-radius: 50%; flex: none; }
 
-/* the session strip: one real student, nineteen minutes */
-.session { margin: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 14px 10px; }
-.session canvas { display: block; width: 100%; height: auto; }
-.session .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; align-items: center; padding: 8px 4px 2px; font-size: .9rem; color: var(--muted); }
-.session .clock { font-family: 'Source Serif 4', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; min-width: 4.5ch; }
-.session button { font: inherit; font-weight: 700; color: var(--ink); background: var(--bg); border: 1px solid var(--rule); border-radius: 7px; padding: 4px 12px; cursor: pointer; }
-.key { display: inline-flex; align-items: center; gap: 6px; margin-right: 14px; white-space: nowrap; }
-.sw { display: inline-block; width: 14px; height: 3px; background: var(--drift); }
-.sw.report { width: 2px; height: 14px; background: var(--ink); }
-.sw.gaze { width: 7px; height: 7px; border-radius: 50%; background: var(--track); }
-.sw.fixed { width: 10px; height: 10px; border-radius: 50%; background: none; border: 2px solid var(--muted); }
-.sw.trig { width: 0; height: 0; background: none; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 10px solid var(--prompt); }
+.screen { margin: 0; }
+.screen .frame { position: relative; aspect-ratio: 1135 / 625; background: #000; border: 10px solid var(--board); border-bottom-width: 0; overflow: hidden; }
+.screen img, .screen canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.screen img { object-fit: cover; opacity: .82; }
+.player { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; background: var(--board); color: var(--chalk); padding: 8px 14px 10px; }
+.player button { font: 600 15px 'Archivo Narrow', sans-serif; color: var(--chalk); background: none; border: 1px solid currentColor; padding: 2px 10px; cursor: pointer; }
+.scrub { position: relative; height: 4px; background: rgba(233,240,236,.25); }
+.scrub i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--drift); }
+.scrub b { position: absolute; right: -7px; top: -12px; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 9px solid var(--prompt); }
+.player .tc { font-size: 15px; white-space: nowrap; }
+.screen figcaption { color: var(--muted); font-size: .92rem; padding: 10px 2px 0; max-width: 62ch; }
 
-main { max-width: 760px; margin: 0 auto; padding: 8px 16px 40px; }
-main h2 { font-size: 1.85rem; line-height: 1.2; margin: 60px 0 10px; }
-main h3 { font-size: 1.2rem; margin: 30px 0 6px; }
-main p, main li { max-width: 68ch; }
-.verdict { background: var(--surface); border: 1px solid var(--rule); border-left: 5px solid var(--drift); border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
-.verdict p { margin: 0 0 10px; }
-.verdict p:last-child { margin: 0; }
-.source { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: .96rem; }
-.source p { margin: 0 0 8px; } .source p:last-child { margin: 0; }
-dl.methods dt { font-weight: 700; margin-top: 14px; }
-dl.methods dd { margin: 2px 0 0; color: var(--ink); }
+.how-to-read { max-width: 1280px; margin: 0 auto; padding: 8px 24px 0; }
+.how-to-read p { margin: 0; max-width: 92ch; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); color: var(--muted); font-size: .98rem; }
 
-.table-wrap { overflow-x: auto; margin: 12px 0 22px; }
-table { width: 100%; border-collapse: collapse; font-size: .93rem; }
-th, td { text-align: left; vertical-align: top; padding: 9px 8px; border-bottom: 1px solid var(--rule); }
-th { color: var(--muted); font-weight: 700; }
-td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
-td .tag { display: inline-block; font-weight: 700; white-space: nowrap; }
-.tag.no::before { content: "✕ "; color: var(--muted); }
-.tag.yes::before { content: "✓ "; color: var(--prompt); }
-.tag.part::before { content: "~ "; color: var(--muted); }
+/* the lecture runs down the page */
+.lecture { display: grid; grid-template-columns: var(--rail) minmax(0, 660px) minmax(0, 300px); gap: 0 44px; justify-content: center;
+  max-width: 1280px; margin: 0 auto; padding: 0 24px; position: relative; }
+.rail { position: sticky; top: 0; height: 100vh; padding: 26px 0 26px; }
+.rail canvas { width: 100%; height: 100%; display: block; }
+article { padding: 10px 0 60px; min-width: 0; }
+.notes { position: relative; }
+article h2 { font: 700 clamp(1.9rem, 3.4vw, 2.6rem)/1.05 'Archivo Narrow', sans-serif; letter-spacing: -.015em; margin: 72px 0 14px; }
+article h2 .tc { display: block; font-size: 1rem; letter-spacing: 0; color: var(--drift); margin-bottom: 6px; }
+article h3 { font: 600 1.3rem/1.25 'Archivo Narrow', sans-serif; margin: 34px 0 6px; }
+article p, article li { max-width: 64ch; }
+.lead b { font-family: 'Archivo Narrow', sans-serif; font-size: 1.12em; }
+.src { color: var(--muted); font-size: .96rem; }
+dl { margin: 18px 0; }
+dt { font: 600 1.08rem 'Archivo Narrow', sans-serif; margin-top: 18px; }
+dd { margin: 2px 0 0; }
 
-figure.chart { margin: 22px 0 28px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 14px 10px; position: relative; }
-figure.chart figcaption { color: var(--muted); font-size: .88rem; padding: 8px 4px 0; }
-figure.chart .title { font-weight: 700; font-size: .98rem; margin: 0 4px 6px; color: var(--ink); }
+table { width: 100%; border-collapse: collapse; margin: 18px 0 26px; font-size: .95rem; line-height: 1.45; }
+th { text-align: left; font: 600 .95rem 'Archivo Narrow', sans-serif; color: var(--muted); padding: 0 10px 8px 0; border-bottom: 2px solid var(--ink); }
+td { vertical-align: top; padding: 10px 10px 10px 0; border-bottom: 1px solid var(--rule); }
+td:first-child { font-family: 'Archivo Narrow', sans-serif; font-weight: 700; width: 3ch; }
+td.v { font-family: 'Archivo Narrow', sans-serif; font-weight: 600; }
+td.v.yes { color: var(--prompt); }
+td.v.no { color: var(--muted); }
+
+figure.chart { margin: 30px 0 34px; position: relative; }
+figure.chart .title { font: 600 1.12rem/1.3 'Archivo Narrow', sans-serif; margin: 0 0 10px; }
 figure.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
-svg text { font-family: 'Public Sans', sans-serif; fill: var(--muted); font-size: 12px; }
-svg .label { fill: var(--ink); font-size: 13px; }
-svg .val { fill: var(--ink); font-size: 12px; font-variant-numeric: tabular-nums; }
-.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-size: .82rem; line-height: 1.35; padding: 6px 9px; border-radius: 6px; max-width: 260px; opacity: 0; transition: opacity .12s; }
+figure.chart figcaption { color: var(--muted); font-size: .9rem; padding-top: 8px; }
+svg text { font-family: 'Archivo Narrow', sans-serif; fill: var(--muted); font-size: 13px; }
+svg .label { fill: var(--ink); font-size: 14px; }
+svg .val { fill: var(--ink); font-size: 13px; font-weight: 600; }
+.tip { position: absolute; pointer-events: none; background: var(--board); color: var(--chalk); font: 14px/1.35 'Archivo Narrow', sans-serif; padding: 6px 9px; max-width: 260px; opacity: 0; }
 .tip.on { opacity: 1; }
 
-figure.shot { margin: 22px 0 28px; }
-figure.shot img { width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 10px; display: block; }
-figure.shot figcaption { color: var(--muted); font-size: .88rem; padding: 6px 4px 0; }
-.qa { background: var(--surface); border: 1px solid var(--rule); border-left: 5px solid var(--prompt); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
-.qa p { margin: 0 0 6px; } .qa .meta { color: var(--muted); font-size: .88rem; }
-.refs p { padding-left: 1.4em; text-indent: -1.4em; font-size: .92rem; color: var(--muted); margin: 0 0 8px; }
-footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--muted); font-size: .92rem; }
-@media (max-width: 560px) { body { font-size: 17px; } th, td { padding: 8px 5px; } table { font-size: .86rem; } td.num, td .tag { white-space: normal; } .hero { padding-top: 28px; } }
+figure.shot { margin: 28px 0; }
+figure.shot img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
+figure.shot figcaption { color: var(--muted); font-size: .9rem; padding-top: 6px; }
+.refs p { padding-left: 1.4em; text-indent: -1.4em; font-size: .93rem; color: var(--muted); margin: 0 0 8px; }
+
+/* tutor prompts in the margin, placed at their time in the lecture */
+.note { position: absolute; left: 0; right: 0; font-size: .93rem; line-height: 1.45; padding-left: 14px; border-left: 3px solid var(--prompt);
+  opacity: .28; transition: opacity .35s; }
+.note.fixed { border-left-style: dotted; border-left-color: var(--muted); }
+.note.on { opacity: 1; }
+.note .tc { display: block; font-size: .95rem; }
+.note .who { color: var(--muted); font-family: 'Archivo Narrow', sans-serif; display: block; margin-top: 4px; }
+.notes-head { display: none; }
+.narrow-only { display: none; }
+@media (max-width: 820px) { .narrow-only { display: inline; } }
+
+footer { max-width: 1280px; margin: 0 auto; padding: 22px 24px 48px; border-top: 1px solid var(--rule); color: var(--muted); font-size: .95rem; }
+
+@media (max-width: 1100px) {
+  .lecture { grid-template-columns: var(--rail) minmax(0, 1fr); }
+  .notes { grid-column: 2; }
+  .notes-head { display: block; font-size: 1.6rem; line-height: 1.1; margin: 0 0 18px; }
+  .note { position: static; opacity: 1; margin: 0 0 18px; }
+}
+@media (max-width: 820px) {
+  .wide-only { display: none; }
+  .opening { grid-template-columns: 1fr; padding-top: 34px; gap: 26px; }
+  .lecture { grid-template-columns: minmax(0, 1fr); }
+  .rail { display: none; }
+  .notes { grid-column: 1; padding-bottom: 30px; }
+}
+@media (max-width: 560px) {
+  body { font-size: 18px; }
+  .opening, .how-to-read, .lecture, footer { padding-left: 16px; padding-right: 16px; }
+  .screen .frame { border-width: 6px 6px 0; }
+  table { font-size: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) { .note { transition: none; } }
 </style>
 </head>
 <body>
@@ -105,197 +142,239 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
   <a href="https://sayamrina.github.io/" target="_blank" rel="noopener">View the portfolio</a>
 </aside>
 
-<header class="hero">
-  <h1>Catch the drift</h1>
-  <p class="lede">Students drift away during video lectures, often without noticing. Can their eye movements tell a tutor when that happens, early enough to step in? I wrote down what I expected before fitting a single model, tested it on 143 students, and report what came out, which is mostly no.</p>
-  <div class="author">
-    <img src="img/amrina.jpg" alt="Photo of Amrina" width="52" height="52">
-    <div><strong>Amrina</strong><div class="byline">M.Sc. Educational Technology, Saarland University. <a href="https://sayamrina.github.io/">Portfolio</a></div></div>
+<header class="opening">
+  <div>
+    <h1><span>Catch</span><span>the</span><span class="off">drift</span></h1>
+    <p class="intro">Students drift away during video lectures, often without noticing. Can their eye movements tell a tutor when that happens, early enough to step in? I wrote down what I expected before fitting a single model, tested it on 143 students, and report what came out. Mostly, it was no.</p>
+    <p class="byline"><img src="img/amrina.jpg" alt="" width="44" height="44"><span><b>Amrina</b>, M.Sc. Educational Technology, Saarland University. Try the <a href="https://catch-the-drift.streamlit.app/" target="_blank" rel="noopener">demo</a>, read the <a href="https://github.com/sayamrina/catch-the-drift" target="_blank" rel="noopener">code</a> and the <a href="https://github.com/sayamrina/catch-the-drift/blob/main/PREREGISTRATION.md" target="_blank" rel="noopener">preregistration</a>, or see the <a href="https://sayamrina.github.io/">portfolio</a>.</span></p>
   </div>
-  <div class="links">
-    <a class="btn primary" href="https://catch-the-drift.streamlit.app/" target="_blank" rel="noopener">Try the demo</a>
-    <a class="btn" href="#results">Results</a>
-    <a class="btn" href="https://github.com/sayamrina/catch-the-drift" target="_blank" rel="noopener">Code and preregistration</a>
-  </div>
-
-  <figure class="session" aria-labelledby="session-cap">
-    <canvas id="session" width="2240" height="640" role="img" aria-label="A real student's 19-minute lecture: whether the eyes were on the slides or the instructor over time, the detector's mind-wandering score, the moments the student reported mind wandering, and the moments the detector would have prompted"></canvas>
-    <div class="bar">
-      <span id="session-cap">
-        <span class="key"><span class="sw gaze"></span>where the eyes were: slides or instructor</span>
-        <span class="key"><span class="sw"></span>detector score</span>
-        <span class="key"><span class="sw report"></span>student noticed their mind had wandered</span>
-        <span class="key"><span class="sw trig"></span>prompt from the detector</span>
-        <span class="key"><span class="sw fixed"></span>prompt on a fixed schedule</span>
-      </span>
-      <span><span class="clock" id="clock" aria-live="off">0:00</span> <button type="button" id="again">Replay</button></span>
+  <figure class="screen">
+    <div class="frame">
+      <img src="img/lecture.jpg" alt="" width="1135" height="625">
+      <canvas id="screen" width="1135" height="625" role="img" aria-label="Student 43's fixations on the lecture video during the 30 seconds before the tutor's prompt at 11:00"></canvas>
     </div>
+    <div class="player">
+      <button type="button" id="again">Replay</button>
+      <div class="scrub" aria-hidden="true"><i id="scrub"></i><b></b></div>
+      <span class="tc" id="clock" aria-live="off">10:30</span>
+    </div>
+    <figcaption>Thirty seconds of Student 43's eyes on the Education lecture, from 10:30 to 11:00. At 11:00 the detector would have prompted; eight seconds later the student pressed the key to say their mind had wandered. The video is blurred in the original data.</figcaption>
   </figure>
-  <p class="lede" style="font-size:.95rem;margin-top:10px">Student 43 from the Wandering Eyes study, watching the 19-minute Education lecture. Of the three prompts the detector would have sent, one came just before the student reported drifting; the same number of prompts on a fixed schedule also caught one. This student is typical, not a best case.</p>
 </header>
 
-<main>
-  <h2>The question</h2>
-  <p>Mind wandering takes up a large share of the time people spend on any task (Smallwood and Schooler, 2015), and video lectures leave nobody to notice it: the video keeps playing while the student is elsewhere. An adaptive learning system could pause and ask a short catch-up question, but only if it knows when. Eye movements are a natural candidate signal, because looking and thinking are tightly coupled while reading or following slides, and webcams can now estimate gaze without special hardware.</p>
-  <p>So the question has three parts. Can mind wandering during a video lecture be detected from gaze alone, for a student the system has never seen? How early? And if a tutor acts on the detector, does it step in at better moments than a tutor that simply asks at fixed times?</p>
-  <p>The nine hypotheses, features, models and tests were <a href="https://github.com/sayamrina/catch-the-drift/blob/main/PREREGISTRATION.md">written down and committed before any model was fitted</a>. Three deviations and two exploratory checks are logged in the same file.</p>
+<div class="how-to-read"><p><span class="wide-only">This page runs as long as the lecture. The strip on the left is Student 43's 19 minutes: grey for where the eyes were, red for the detector's score, black for the moments the student noticed their mind had wandered. As you scroll, the lecture plays, and the tutor's prompts light up in the margin at the minute they would have been sent.</span><span class="narrow-only">This page runs as long as the lecture: each heading carries the minute of Student 43's lecture that it corresponds to, and the questions the tutor would have asked are listed at the end.</span></p></div>
 
-  <h2 id="data">Data and methods</h2>
-  <div class="source">
-    <p><b>Video lectures: Wandering Eyes</b> (Zhang, Miller, Sun and Cortina, 2020; <a href="https://osf.io/ptj75/" target="_blank" rel="noopener">OSF</a>, CC-BY 4.0). 143 undergraduates watched a 19-minute Education or 22-minute Genetics lecture (slides plus instructor) while an Eye Tribe tracker recorded their gaze at 60 Hz. Half were asked four times, at a beep, whether their mind had wandered (272 answers, 87 yes). The other half pressed a key whenever they noticed it (815 presses). Everyone took a short test before and a longer one after.</p>
-    <p><b>Reading: ReMind</b> (Sun, 2025; <a href="https://osf.io/ajme7/" target="_blank" rel="noopener">OSF</a>, CC-BY 4.0). 45 readers marked where in a text their mind had started to wander; the authors provide gaze features for the 2 seconds before each onset and before matched control points.</p>
-  </div>
-  <dl class="methods">
-    <dt>Windows and labels</dt>
-    <dd>For each report I take the 30 seconds of gaze before it. For key presses, the comparison windows are every other 30 seconds of the lecture that stay clear of a press. These are "not reported" rather than certainly attentive, which is a known weakness of self-reports.</dd>
-    <dt>Twelve gaze features</dt>
-    <dd>Fixation rate; mean, median and spread of fixation durations; share of long fixations; share of looking at the instructor rather than the slides (screen regions taken from the authors' own analysis); share off the video; how scattered fixations are on the slides; size and variability of eye jumps; share of mostly horizontal jumps, which signals reading; and how much of the window the tracker captured.</dd>
-    <dt>Models</dt>
-    <dd>Logistic regression (primary) and a random forest on the features; a small recurrent network (GRU) that reads the raw sequence of fixations in each window.</dd>
-    <dt>Person-independent testing</dt>
-    <dd>Every score comes from a model that never saw that student: leave-one-student-out, or ten folds split by student. Significance by 1,000 label shuffles; confidence intervals by resampling students.</dd>
-    <dt>The tutor simulation</dt>
-    <dd>Walk through each lecture in 30-second steps. The triggered tutor prompts when the detector score is in the top 20% and at least a minute has passed since its last prompt. The fixed tutor sends the same number of prompts, evenly spaced; a random tutor sends them at random times. A prompt counts as well timed if the student reports drifting within the next 30 seconds.</dd>
-    <dt>Catch-up questions</dt>
-    <dd>For each of the 22 paragraphs of the Education lecture script, gpt-4o-mini wrote one short question and an answer key using only that paragraph. A moment in the video is matched to a paragraph by word count, which is approximate. The demo shows these stored questions and makes no model calls.</dd>
-  </dl>
+<div class="lecture" id="lecture">
+  <div class="rail" aria-hidden="true"><canvas id="rail"></canvas></div>
 
-  <h2 id="results">Results</h2>
-  <div class="verdict">
-    <p><b>The detector does not work.</b> With summary features of 30 seconds of gaze, students who were about to report mind wandering could not be told apart from other moments (AUC 0.49 for key presses, 0.50 for probes; 0.50 is chance).</p>
-    <p><b>The tutor beat a fixed schedule, but not chance.</b> Triggered prompts were better timed than evenly spaced ones, as predicted, but no better than prompts at random times. The fixed schedule was simply unlucky.</p>
-    <p><b>The order of fixations may carry what the summaries lose.</b> The sequence model reached AUC 0.57, the one video result clearly above chance. It needs confirming on new data.</p>
-    <p><b>In reading, the signal is there but small.</b> On a second dataset, gaze in the 2 seconds before readers' mind wandered began was distinguishable from control moments (AUC 0.55, p = .001). Fixation count pointed in opposite directions in reading and in the lecture, so the features do not carry over directly.</p>
-  </div>
+  <article id="article">
+    <h2 id="question"><span class="tc" data-tc></span>The question</h2>
+    <p>Mind wandering takes up a large share of the time people spend on any task (Smallwood and Schooler, 2015), and a video lecture leaves nobody to notice it: the video keeps playing while the student is elsewhere. An adaptive learning system could pause and ask a short catch-up question, but only if it knows when. Eye movements are a natural signal, because looking and thinking are tightly coupled while following slides, and webcams can now estimate gaze without special hardware.</p>
+    <p>So the question has three parts. Can mind wandering be detected from gaze alone, for a student the system has never seen? How early? And if a tutor acts on the detector, does it step in at better moments than a tutor that simply asks at fixed times?</p>
+    <p>The nine hypotheses, features, models and tests were <a href="https://github.com/sayamrina/catch-the-drift/blob/main/PREREGISTRATION.md">written down and committed before any model was fitted</a>. Three deviations and two exploratory checks are logged in the same file.</p>
 
-  <figure class="chart" id="fig-auc">
-    <p class="title">How well each model told mind wandering apart from other moments</p>
-    <svg id="auc" viewBox="0 0 700 330" role="img" aria-labelledby="auc-cap"></svg>
-    <figcaption id="auc-cap">AUC-ROC on students the model never saw; 0.50 is chance. Whiskers: 95% interval from resampling students, where computed. The GRU interval is exploratory. All values are in the table below.</figcaption>
-  </figure>
+    <h2 id="data"><span class="tc" data-tc></span>Data and methods</h2>
+    <p class="src"><b>Video lectures: Wandering Eyes</b> (Zhang, Miller, Sun and Cortina, 2020; <a href="https://osf.io/ptj75/" target="_blank" rel="noopener">OSF</a>, CC-BY 4.0). 143 undergraduates watched a 19-minute Education or 22-minute Genetics lecture, slides plus instructor, while an Eye Tribe tracker recorded their gaze at 60 Hz. Half were asked four times, at a beep, whether their mind had wandered (272 answers, 87 yes). The other half pressed a key whenever they noticed it (815 presses). Everyone took a short test before and a longer one after.</p>
+    <p class="src"><b>Reading: ReMind</b> (Sun, 2025; <a href="https://osf.io/ajme7/" target="_blank" rel="noopener">OSF</a>, CC-BY 4.0). 45 readers marked where in a text their mind had started to wander; the authors provide gaze features for the 2 seconds before each onset and before matched control points.</p>
+    <dl>
+      <dt>Windows and labels</dt>
+      <dd>For each report I take the 30 seconds of gaze before it. For key presses, the comparison windows are every other 30 seconds of the lecture that stay clear of a press. These are "not reported" rather than certainly attentive, which is a known weakness of self-reports.</dd>
+      <dt>Twelve gaze features</dt>
+      <dd>Fixation rate; mean, median and spread of fixation durations; share of long fixations; share of looking at the instructor rather than the slides (screen regions from the authors' own analysis); share off the video; how scattered fixations are on the slides; size and variability of eye jumps; share of mostly horizontal jumps, which signals reading; and how much of the window the tracker captured.</dd>
+      <dt>Models</dt>
+      <dd>Logistic regression (primary) and a random forest on the features; a small recurrent network (GRU) that reads the raw sequence of fixations in each window.</dd>
+      <dt>Testing on students the model never saw</dt>
+      <dd>Leave-one-student-out, or ten folds split by student. Significance by 1,000 label shuffles; confidence intervals by resampling students.</dd>
+      <dt>The tutor simulation</dt>
+      <dd>Walk through each lecture in 30-second steps. The triggered tutor prompts when the detector score is in the top 20% and at least a minute has passed since its last prompt. The fixed tutor sends the same number of prompts, evenly spaced; a random tutor sends them at random times. A prompt counts as well timed if the student reports drifting within the next 30 seconds.</dd>
+      <dt>Catch-up questions</dt>
+      <dd>For each of the 22 paragraphs of the Education lecture script, gpt-4o-mini wrote one short question and an answer key using only that paragraph. A moment in the video is matched to a paragraph by word count, which is approximate. The demo shows these stored questions and makes no model calls.</dd>
+    </dl>
 
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>Hypothesis</th><th>Result</th><th>Verdict</th></tr></thead>
-    <tbody>
-      <tr><td><b>H1</b> Gaze detects mind wandering at a probe</td><td class="num">AUC 0.50 [0.42, 0.59], p = .38<br>forest 0.58</td><td><span class="tag no">Not supported</span></td></tr>
-      <tr><td><b>H2</b> Gaze detects the 30 s before a key press</td><td class="num">AUC 0.49 [0.42, 0.56], p = .57<br>forest 0.54</td><td><span class="tag no">Not supported</span></td></tr>
-      <tr><td><b>H3</b> Detection weakens as the window moves earlier</td><td class="num">0.49, 0.48, 0.44, 0.45, 0.47<br>at 0–30 s; ρ = −.60, p = .29</td><td><span class="tag no">Not supported</span></td></tr>
-      <tr><td><b>H4</b> A sequence model gains no more than 0.02</td><td class="num">GRU 0.57 vs 0.49<br>(+0.09)</td><td><span class="tag no">Not supported</span>, in the interesting direction</td></tr>
-      <tr><td><b>H5</b> A detector transfers to the other lecture</td><td class="num">0.48 and 0.45<br>(within: 0.53 and 0.59)</td><td><span class="tag no">Not supported</span></td></tr>
-      <tr><td><b>H6</b> More predicted drift, lower post-test</td><td class="num">partial r = +.16, n = 140</td><td><span class="tag no">Not supported</span> (wrong sign)</td></tr>
-      <tr><td><b>H7</b> Triggered prompts are better timed than fixed</td><td class="num">27% vs 21%, p = .026<br>random: 24%, p = .36</td><td><span class="tag yes">Supported</span>, but not better than random</td></tr>
-      <tr><td><b>H8</b> Gaze detects the onset of mind wandering in reading</td><td class="num">AUC 0.55, p = .001<br>with pupil and blink: 0.54</td><td><span class="tag yes">Supported</span>, weakly</td></tr>
-      <tr><td><b>H9</b> Features point the same way in reading and video</td><td class="num">dispersion agrees;<br>fixation count, jump size disagree</td><td><span class="tag part">Descriptive</span></td></tr>
-    </tbody>
-  </table>
-  </div>
-  <p>Strict data-quality rules cost a lot: windows where the tracker captured less than half the time were dropped as planned, which removed 38% of probe windows (168 of 272 remain, from 49 of 68 students) and 28% of key-press windows (1,698 of 2,349, from 71 of 75 students). The detector's coefficients are hard to read for that reason too: the largest is tracking coverage itself, which says more about the tracker than about attention.</p>
+    <h2 id="results"><span class="tc" data-tc></span>What came out</h2>
+    <p class="lead"><b>The detector does not work.</b> With summary features of 30 seconds of gaze, the moments before a student reported mind wandering could not be told apart from other moments: AUC 0.49 for key presses and 0.50 for probes, where 0.50 is chance.</p>
+    <p class="lead"><b>The tutor beat a fixed schedule, but not chance.</b> Triggered prompts were better timed than evenly spaced ones, as predicted, but no better than prompts at random times. The fixed schedule was simply unlucky.</p>
+    <p class="lead"><b>The order of fixations may carry what the summaries lose.</b> The sequence model reached AUC 0.57, the one video result clearly above chance. It needs confirming on new data.</p>
+    <p class="lead"><b>In reading, the signal is there but small.</b> Gaze in the 2 seconds before a reader's mind began to wander was distinguishable from control moments (AUC 0.55, p = .001). Fixation count pointed in opposite directions in reading and in the lecture, so the features do not carry over directly.</p>
 
-  <figure class="chart" id="fig-policy">
-    <p class="title">Share of tutor prompts that came within 30 s before a student reported drifting</p>
-    <svg id="policy" viewBox="0 0 700 170" role="img" aria-labelledby="policy-cap"></svg>
-    <figcaption id="policy-cap">67 students in the key-press group, 5.1 prompts each on average. Triggered vs fixed: preregistered Wilcoxon test, p = .026. Triggered vs random: exploratory, p = .36.</figcaption>
-  </figure>
+    <figure class="chart" id="fig-auc">
+      <p class="title">How well each model told mind wandering apart from other moments</p>
+      <svg id="auc" viewBox="0 0 660 340" role="img" aria-labelledby="auc-cap"></svg>
+      <figcaption id="auc-cap">AUC-ROC on people the model never saw; 0.50 is chance. Red: the whole interval or value lies above chance. Lines: 95% interval from resampling students, where computed; the GRU interval is exploratory.</figcaption>
+    </figure>
 
-  <h3>What I take from it</h3>
-  <p>A consumer tracker at 60 Hz, a handful of gaze statistics and a person-independent test is a hard setting, and here it is not enough. That is useful to know before building a tutor around it: a system that interrupts students on this signal would interrupt them at random. The comparison with the fixed schedule also shows why a random baseline belongs in every such evaluation. Without it, H7 would have looked like a success.</p>
-  <p>Two things are worth following up. The sequence model's advantage suggests that the order of fixations (for example, a drift from slides to the instructor and back without reading) holds information that averages throw away. And the self-report labels limit everything here: the comparison windows certainly contain mind wandering that nobody noticed, which pulls every detector towards chance.</p>
+    <table>
+      <thead><tr><th></th><th>Hypothesis and result</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>H1</td><td>Gaze detects mind wandering at a probe.<br>AUC 0.50 [0.42, 0.59], p = .38; forest 0.58.</td><td class="v no">Not supported</td></tr>
+        <tr><td>H2</td><td>Gaze detects the 30 s before a key press.<br>AUC 0.49 [0.42, 0.56], p = .57; forest 0.54.</td><td class="v no">Not supported</td></tr>
+        <tr><td>H3</td><td>Detection weakens as the window moves earlier.<br>0.49, 0.48, 0.44, 0.45, 0.47 at 0 to 30 s; ρ = −.60, p = .29.</td><td class="v no">Not supported</td></tr>
+        <tr><td>H4</td><td>A sequence model gains no more than 0.02.<br>GRU 0.57 vs 0.49.</td><td class="v no">Not supported, the GRU did better</td></tr>
+        <tr><td>H5</td><td>A detector transfers to the other lecture.<br>0.48 and 0.45 (within the lecture: 0.53 and 0.59).</td><td class="v no">Not supported</td></tr>
+        <tr><td>H6</td><td>More predicted drift, lower post-test.<br>Partial r = +.16, n = 140.</td><td class="v no">Not supported, wrong sign</td></tr>
+        <tr><td>H7</td><td>Triggered prompts are better timed than fixed ones.<br>27% vs 21%, p = .026; random 24%, p = .36.</td><td class="v yes">Supported, but not better than random</td></tr>
+        <tr><td>H8</td><td>Gaze detects the onset of mind wandering in reading.<br>AUC 0.55, p = .001; with pupil and blink 0.54.</td><td class="v yes">Supported, weakly</td></tr>
+        <tr><td>H9</td><td>Features point the same way in reading and video.<br>Dispersion agrees; fixation count and jump size do not.</td><td class="v no">Descriptive</td></tr>
+      </tbody>
+    </table>
+    <p>Strict data-quality rules cost a lot: windows where the tracker captured less than half the time were dropped as planned, which removed 38% of probe windows (168 of 272 remain, from 49 of 68 students) and 28% of key-press windows (1,698 of 2,349, from 71 of 75 students). The largest coefficient in the detector is tracking coverage itself, which says more about the tracker than about attention.</p>
 
-  <h2 id="demo">The demo</h2>
-  <p>The <a href="https://catch-the-drift.streamlit.app/">demo</a> replays any of the 33 students who watched the Education lecture in the key-press group. It shows the detector score over the whole lecture, the student's own reports, where the triggered and fixed tutors would have prompted, the fixations in the 30 seconds before each prompt, and the catch-up question the tutor would ask at that point. It says plainly when a prompt would have interrupted a student who reported nothing.</p>
-  <figure class="shot">
-    <img src="img/app.png" alt="Screenshot of the demo: a timeline of one student's detector score with reports and prompts, below it a gaze plot over the lecture slide and a catch-up question card" loading="lazy">
-    <figcaption>The demo with Student 2 selected.</figcaption>
-  </figure>
-  <div class="qa">
-    <p class="meta">What the tutor would have asked Student 43 at 11:00, eight seconds before the student reported drifting. Lecture paragraph <span id="qa-idx"></span>.</p>
-    <p><b id="qa-q"></b></p>
-    <p class="meta" id="qa-a"></p>
-  </div>
+    <figure class="chart" id="fig-policy">
+      <p class="title">Share of tutor prompts that came within 30 s before a student reported drifting</p>
+      <svg id="policy" viewBox="0 0 660 160" role="img" aria-labelledby="policy-cap"></svg>
+      <figcaption id="policy-cap">67 students in the key-press group, 5.1 prompts each on average. Triggered vs fixed: preregistered Wilcoxon test, p = .026. Triggered vs random: exploratory, p = .36.</figcaption>
+    </figure>
 
-  <h2>Limits</h2>
-  <ul>
-    <li>Self-reports capture only the drifting a student noticed; probes capture only four moments per student.</li>
-    <li>One dataset, one tracker model, two lectures, undergraduates at one university.</li>
-    <li>The tutor simulation measures timing only. Whether a catch-up question helps learning would need a study with students.</li>
-    <li>The GRU result is a single run with a fixed seed, and its interval was computed after seeing the results.</li>
-    <li>Paragraphs are matched to video time by word count, not by timestamps.</li>
-  </ul>
+    <h3>What I take from it</h3>
+    <p>A consumer tracker at 60 Hz, a handful of gaze statistics and a test on unseen students is a hard setting, and here it is not enough. That is useful to know before building a tutor around it: a system that interrupts students on this signal would interrupt them at random. The comparison with the fixed schedule also shows why a random baseline belongs in every such evaluation. Without it, H7 would have looked like a success.</p>
+    <p>Two things are worth following up. The sequence model's advantage suggests that the order of fixations, for example a drift from the slides to the instructor and back without reading, holds information that averages throw away. And the self-report labels limit everything here: the comparison windows certainly contain mind wandering that nobody noticed, which pulls every detector towards chance.</p>
 
-  <h2>Data and references</h2>
-  <div class="refs">
-    <p>Smallwood, J., and Schooler, J. W. (2015). The science of mind wandering: Empirically navigating the stream of consciousness. <i>Annual Review of Psychology, 66</i>, 487–518.</p>
-    <p>Zhang, H., Miller, K. F., Sun, X., and Cortina, K. S. (2020). Wandering eyes: Eye movements during mind wandering in video lectures. <i>Applied Cognitive Psychology, 34</i>(2), 449–464. Data: <a href="https://osf.io/ptj75/">osf.io/ptj75</a>, CC-BY 4.0.</p>
-    <p>Sun, H. (2025). ReMind: A retrospective self-report paradigm for studying mind-wandering onset during reading [Data set]. <a href="https://osf.io/ajme7/">osf.io/ajme7</a>, CC-BY 4.0.</p>
-  </div>
-</main>
+    <h2 id="demo"><span class="tc" data-tc></span>The demo</h2>
+    <p>The <a href="https://catch-the-drift.streamlit.app/">demo</a> replays any of the 33 students who watched the Education lecture in the key-press group: the detector score over the whole lecture, the student's own reports, where the triggered and fixed tutors would have prompted, the fixations in the 30 seconds before each prompt, and the catch-up question the tutor would ask at that point. It says plainly when a prompt would have interrupted a student who reported nothing.</p>
+    <figure class="shot">
+      <img src="img/app.png" alt="Screenshot of the demo: a timeline of one student's detector score with reports and prompts, and a catch-up question card" loading="lazy" width="1300" height="1000">
+      <figcaption>The demo with Student 2 selected.</figcaption>
+    </figure>
 
-<footer>
-  <p>Built by Amrina, with AI as a supporting tool for coding. Data by the original authors under CC-BY 4.0; code under the MIT licence.</p>
-</footer>
+    <h2 id="limits"><span class="tc" data-tc></span>Limits</h2>
+    <ul>
+      <li>Self-reports capture only the drifting a student noticed; probes capture only four moments per student.</li>
+      <li>One dataset, one tracker model, two lectures, undergraduates at one university.</li>
+      <li>The tutor simulation measures timing only. Whether a catch-up question helps learning would need a study with students.</li>
+      <li>The GRU result is a single run with a fixed seed, and its interval was computed after seeing the results.</li>
+      <li>Paragraphs are matched to video time by word count, not by timestamps.</li>
+    </ul>
+
+    <h2 id="refs"><span class="tc" data-tc></span>Data and references</h2>
+    <div class="refs">
+      <p>Smallwood, J., and Schooler, J. W. (2015). The science of mind wandering: Empirically navigating the stream of consciousness. <i>Annual Review of Psychology, 66</i>, 487–518.</p>
+      <p>Sun, H. (2025). ReMind: A retrospective self-report paradigm for studying mind-wandering onset during reading [Data set]. <a href="https://osf.io/ajme7/">osf.io/ajme7</a>, CC-BY 4.0.</p>
+      <p>Zhang, H., Miller, K. F., Sun, X., and Cortina, K. S. (2020). Wandering eyes: Eye movements during mind wandering in video lectures. <i>Applied Cognitive Psychology, 34</i>(2), 449–464. Data: <a href="https://osf.io/ptj75/">osf.io/ptj75</a>, CC-BY 4.0.</p>
+    </div>
+  </article>
+
+  <aside class="notes" id="notes" aria-label="What the tutor would have asked Student 43">
+    <h2 class="notes-head narrow">What the tutor would have asked Student 43</h2>
+  </aside>
+</div>
+
+<footer>Built by Amrina, with AI as a supporting tool for coding. Data by the original authors under CC-BY 4.0; code under the MIT licence.</footer>
 
 <script>
 (() => {
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const cv = document.getElementById('session'), ctx = cv.getContext('2d');
-  const clock = document.getElementById('clock');
-  const W = cv.width, H = cv.height, L = 130, R = W - 30;
-  const gazeTop = 24, gazeBot = 270, scoreTop = 345, scoreBot = 500, markY = 540;
-  let data = null, start = 0, raf = 0;
-  const DUR = 14000;
   const fmt = ms => `${Math.floor(ms / 60000)}:${String(Math.floor(ms / 1000) % 60).padStart(2, '0')}`;
+  const article = document.getElementById('article');
+  let data = null, prompts = [];
 
-  function draw(upTo) {
-    const T = data.T, sx = t => L + (R - L) * t / T;
-    ctx.clearRect(0, 0, W, H);
-    ctx.font = '24px "Public Sans", sans-serif';
-    ctx.fillStyle = css('--muted');
-    ctx.textAlign = 'right';
-    const gy = x => gazeBot - (gazeBot - gazeTop) * Math.min(1, Math.max(0, x / 1280));
-    ctx.fillText('instructor', L - 12, gy(1120) + 8); ctx.fillText('slides', L - 12, gy(560) + 8);
-    ctx.fillText('drift', L - 12, scoreTop + 18); ctx.fillText('score', L - 12, scoreTop + 44);
-    ctx.textAlign = 'center';
-    for (let m = 0; m * 60000 <= T; m += 2) ctx.fillText(`${m} min`, sx(m * 60000), H - 8);
-    // threshold
-    const sy = p => scoreBot - (scoreBot - scoreTop) * Math.min(1, Math.max(0, (p - 0.2) / 0.5));
-    ctx.strokeStyle = css('--rule'); ctx.lineWidth = 2; ctx.setLineDash([8, 8]);
-    ctx.beginPath(); ctx.moveTo(L, sy(data.thr)); ctx.lineTo(R, sy(data.thr)); ctx.stroke(); ctx.setLineDash([]);
-    ctx.textAlign = 'left'; ctx.fillText('prompt threshold', L + 6, sy(data.thr) - 10);
-    // reports
-    ctx.strokeStyle = css('--ink'); ctx.lineWidth = 3;
-    for (const t of data.reports) if (t <= upTo) { ctx.beginPath(); ctx.moveTo(sx(t), gazeTop); ctx.lineTo(sx(t), scoreBot); ctx.stroke(); }
-    // gaze
-    ctx.fillStyle = css('--track'); ctx.globalAlpha = .55;
-    for (const [t, d, x] of data.fix) {
-      if (t > upTo) break;
-      ctx.beginPath(); ctx.arc(sx(t), gy(x), 2 + Math.min(d, 1500) / 260, 0, 7); ctx.fill();
+  // scroll position inside the article <-> time in the lecture
+  const span = () => { const r = article.getBoundingClientRect(); return { top: r.top + scrollY, h: article.offsetHeight }; };
+  const timeAtY = y => { const s = span(); return Math.max(0, Math.min(1, (y - s.top) / s.h)) * data.T; };
+  const yAtTime = t => span().top + (t / data.T) * span().h;
+
+  // the lecture screen: 30 s of fixations before the prompt at 11:00
+  const sc = document.getElementById('screen'), sx = sc.getContext('2d');
+  const clock = document.getElementById('clock'), scrub = document.getElementById('scrub');
+  const T0 = 630000, T1 = 660000, PLAY = 9000;
+  let raf = 0, t0 = 0;
+  function drawScreen(upTo) {
+    sx.clearRect(0, 0, sc.width, sc.height);
+    const w = data.fix.filter(f => f[0] >= T0 && f[0] <= upTo);
+    const px = f => [(f[2] - 140) / 1135 * sc.width, (f[3] - 200) / 625 * sc.height];
+    sx.lineWidth = 2; sx.strokeStyle = 'rgba(233,240,236,.55)'; sx.beginPath();
+    w.forEach((f, i) => { const [x, y] = px(f); i ? sx.lineTo(x, y) : sx.moveTo(x, y); }); sx.stroke();
+    w.forEach((f, i) => {
+      const [x, y] = px(f), r = 5 + Math.min(f[1], 1500) / 45, last = i === w.length - 1;
+      sx.fillStyle = last ? 'rgba(201,61,36,.75)' : 'rgba(201,61,36,.32)'; sx.strokeStyle = 'rgba(255,255,255,.85)'; sx.lineWidth = 1.5;
+      sx.beginPath(); sx.arc(x, y, r, 0, 7); sx.fill(); sx.stroke();
+    });
+    scrub.style.width = (Math.min(1, (upTo - T0) / (T1 - T0)) * 100) + '%';
+    clock.textContent = fmt(upTo);
+  }
+  function playScreen() {
+    cancelAnimationFrame(raf);
+    if (reduce) { drawScreen(T1); return; }
+    t0 = performance.now();
+    const step = now => { const f = Math.min(1, (now - t0) / PLAY); drawScreen(T0 + f * (T1 - T0)); if (f < 1) raf = requestAnimationFrame(step); };
+    raf = requestAnimationFrame(step);
+  }
+  document.getElementById('again').addEventListener('click', () => data && playScreen());
+
+  // the rail: Student 43's whole lecture, top to bottom
+  const rail = document.getElementById('rail'), rc = rail.getContext('2d');
+  function drawRail() {
+    if (!data || !rail.offsetParent) return;
+    const dpr = devicePixelRatio || 1, W = rail.clientWidth, H = rail.clientHeight;
+    if (rail.width !== W * dpr || rail.height !== H * dpr) { rail.width = W * dpr; rail.height = H * dpr; }
+    rc.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const top = 26, bot = H - 8, ty = t => top + (bot - top) * t / data.T;
+    const gx0 = 40, gx1 = 80, sx0 = 88, sx1 = W - 4;
+    rc.clearRect(0, 0, W, H);
+    rc.font = '600 12px "Archivo Narrow", sans-serif'; rc.fillStyle = css('--muted'); rc.textBaseline = 'middle';
+    for (let m = 0; m * 60000 <= data.T; m += 3) rc.fillText(`${m}:00`, 0, ty(m * 60000));
+    rc.globalAlpha = .7; rc.fillStyle = css('--gaze');
+    for (const [t, , x] of data.fix) rc.fillRect(gx0 + (gx1 - gx0) * Math.min(1, Math.max(0, x / 1280)), ty(t), 1.6, 1.6);
+    rc.globalAlpha = 1;
+    rc.strokeStyle = css('--ink'); rc.lineWidth = 1.5;
+    for (const t of data.reports) { rc.beginPath(); rc.moveTo(gx0 - 4, ty(t)); rc.lineTo(sx1, ty(t)); rc.stroke(); }
+    const ps = data.score.map(d => d[1]), lo = Math.min(...ps, data.thr) - .02, hi = Math.max(...ps, data.thr) + .02;
+    const pxs = p => sx0 + (sx1 - 14 - sx0) * (p - lo) / (hi - lo);
+    rc.strokeStyle = css('--rule'); rc.setLineDash([3, 3]); rc.beginPath(); rc.moveTo(pxs(data.thr), top); rc.lineTo(pxs(data.thr), bot); rc.stroke(); rc.setLineDash([]);
+    rc.strokeStyle = css('--drift'); rc.lineWidth = 2.5; rc.lineJoin = 'round'; rc.beginPath();
+    data.score.forEach(([e, p], i) => i ? rc.lineTo(pxs(p), ty(e)) : rc.moveTo(pxs(p), ty(e))); rc.stroke();
+    for (const p of prompts) {
+      const y = ty(p.t);
+      if (p.kind === 'detector') { rc.fillStyle = css('--prompt'); rc.beginPath(); rc.moveTo(sx1, y); rc.lineTo(sx1 - 9, y - 6); rc.lineTo(sx1 - 9, y + 6); rc.fill(); }
+      else { rc.strokeStyle = css('--muted'); rc.lineWidth = 1.5; rc.beginPath(); rc.arc(sx1 - 5, y, 4, 0, 7); rc.stroke(); }
     }
-    ctx.globalAlpha = 1;
-    // score
-    ctx.strokeStyle = css('--drift'); ctx.lineWidth = 4; ctx.lineJoin = 'round'; ctx.beginPath();
-    let first = true;
-    for (const [e, p] of data.score) { if (e > upTo) break; first ? ctx.moveTo(sx(e), sy(p)) : ctx.lineTo(sx(e), sy(p)); first = false; }
-    ctx.stroke();
-    // prompts
-    ctx.fillStyle = css('--prompt');
-    for (const t of data.trig) if (t <= upTo) { const x = sx(t); ctx.beginPath(); ctx.moveTo(x - 12, markY + 12); ctx.lineTo(x + 12, markY + 12); ctx.lineTo(x, markY - 10); ctx.fill(); }
-    ctx.strokeStyle = css('--muted'); ctx.lineWidth = 2.5;
-    for (const t of data.fixed) if (t <= upTo) { ctx.beginPath(); ctx.arc(sx(t), markY + 34, 8, 0, 7); ctx.stroke(); }
-    // playhead
-    if (upTo < T) { ctx.strokeStyle = css('--muted'); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(sx(upTo), gazeTop - 10); ctx.lineTo(sx(upTo), markY + 44); ctx.stroke(); }
-    clock.textContent = fmt(Math.min(upTo, T));
+    // playhead: the time at the middle of the viewport
+    const now = timeAtY(scrollY + innerHeight * .5);
+    rc.fillStyle = css('--bg'); rc.fillRect(0, ty(now) - 9, 36, 18);
+    rc.strokeStyle = css('--ink'); rc.lineWidth = 2; rc.beginPath(); rc.moveTo(34, ty(now)); rc.lineTo(W, ty(now)); rc.stroke();
+    rc.fillStyle = css('--ink'); rc.font = '700 13px "Archivo Narrow", sans-serif'; rc.fillText(fmt(now), 0, ty(now));
+    rc.font = '600 12px "Archivo Narrow", sans-serif'; rc.fillStyle = css('--muted'); rc.textBaseline = 'top';
+    rc.fillText('eyes', gx0, 0); rc.fillText('drift', sx0, 0);
   }
-  function tick(now) {
-    const f = Math.min(1, (now - start) / DUR);
-    draw(f * data.T);
-    if (f < 1) raf = requestAnimationFrame(tick);
+
+  // section timecodes and margin notes
+  function layout() {
+    if (!data) return;
+    document.querySelectorAll('[data-tc]').forEach(el => { el.textContent = fmt(timeAtY(el.parentElement.getBoundingClientRect().top + scrollY)); });
+    const wide = matchMedia('(min-width: 1101px)').matches, base = document.getElementById('notes').getBoundingClientRect().top + scrollY;
+    let minY = 0;
+    document.querySelectorAll('.note').forEach(n => {
+      if (!wide) { n.style.top = ''; return; }
+      const y = Math.max(yAtTime(+n.dataset.t) - base, minY);
+      n.style.top = y + 'px'; minY = y + n.offsetHeight + 16;
+    });
+    onScroll();
   }
-  function play() { cancelAnimationFrame(raf); if (reduce) { draw(data.T); return; } start = performance.now(); raf = requestAnimationFrame(tick); }
-  document.getElementById('again').addEventListener('click', () => data && play());
-  fetch('assets/student43.json').then(r => r.json()).then(d => { data = d; Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 600))]).then(play); });
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => data && draw(data.T));
+  function onScroll() {
+    if (!data) return;
+    const now = timeAtY(scrollY + innerHeight * .5);
+    document.querySelectorAll('.note').forEach(n => n.classList.toggle('on', +n.dataset.t <= now + 1));
+    drawRail();
+  }
+
+  Promise.all([fetch('assets/student43.json').then(r => r.json()), fetch('assets/prompts.json').then(r => r.json())]).then(([d, p]) => {
+    data = d; prompts = p;
+    const notes = document.getElementById('notes');
+    for (const q of p) {
+      const n = document.createElement('div');
+      n.className = 'note' + (q.kind === 'fixed' ? ' fixed' : ''); n.dataset.t = q.t;
+      const head = document.createElement('span'); head.className = 'tc';
+      head.textContent = `${fmt(q.t)}, ${q.kind === 'detector' ? 'detector prompt' : 'fixed-schedule prompt'}`;
+      const body = document.createElement('span'); body.textContent = q.question;
+      const who = document.createElement('span'); who.className = 'who';
+      who.textContent = `Paragraph ${q.paragraph}. ${q.hit ? `The student reported drifting ${q.after_s} s later.` : 'No report followed within 30 s.'}`;
+      n.append(head, body, who); notes.appendChild(n);
+    }
+    Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 600))]).then(() => { layout(); playScreen(); });
+  });
+  addEventListener('scroll', () => requestAnimationFrame(onScroll), { passive: true });
+  addEventListener('resize', () => requestAnimationFrame(layout));
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', layout);
 
   // charts
   const NS = 'http://www.w3.org/2000/svg';
@@ -303,65 +382,62 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
   function tip(fig) { const t = document.createElement('div'); t.className = 'tip'; fig.appendChild(t); return t; }
   function hover(target, fig, t, html) {
     const show = ev => { t.innerHTML = html; t.classList.add('on'); const r = fig.getBoundingClientRect(); const p = ev.touches ? ev.touches[0] : ev;
-      t.style.left = Math.min(p.clientX - r.left + 12, r.width - 270) + 'px'; t.style.top = (p.clientY - r.top + 12) + 'px'; };
+      t.style.left = Math.max(0, Math.min(p.clientX - r.left + 12, r.width - 270)) + 'px'; t.style.top = (p.clientY - r.top + 12) + 'px'; };
     target.addEventListener('mousemove', show); target.addEventListener('touchstart', show, { passive: true });
     target.addEventListener('mouseleave', () => t.classList.remove('on'));
   }
-
   const AUC = [
     ['Probe answers, logistic', .499, [.42, .592], 'H1 · 168 windows, 49 students · p = .38'],
     ['Probe answers, forest', .578, null, 'H1 secondary model'],
     ['Key presses, logistic', .489, [.418, .56], 'H2 · 1,698 windows, 71 students · p = .57'],
     ['Key presses, forest', .539, null, 'H2 secondary model'],
-    ['Key presses, GRU on sequences', .575, [.523, .628], 'H4 · interval exploratory'],
+    ['Key presses, GRU on sequences', .5746, [.523, .628], 'H4 · interval exploratory'],
     ['Education → Genetics', .481, null, 'H5 transfer (within-lecture 0.53)'],
     ['Genetics → Education', .452, null, 'H5 transfer (within-lecture 0.59)'],
     ['Reading onset (ReMind), logistic', .545, null, 'H8 · 2,211 windows, 45 readers · p = .001'],
   ];
-  window.drawAUC = rows => {
-    const svg = document.getElementById('auc'), fig = document.getElementById('fig-auc'), t = tip(fig);
-    svg.innerHTML = '';
-    const n = svg.getBoundingClientRect().width < 520, VW = n ? 380 : 700;
-    const x0 = n ? 8 : 250, x1 = VW - 40, lo = .35, hi = .70, sx = v => x0 + (x1 - x0) * (v - lo) / (hi - lo), rowH = n ? 50 : 38;
-    svg.setAttribute('viewBox', `0 0 ${VW} ${rows.length * rowH + 40}`);
-    const bottom = rows.length * rowH + 4;
+  function drawAUC() {
+    const svg = document.getElementById('auc'), fig = document.getElementById('fig-auc');
+    svg.innerHTML = ''; fig.querySelectorAll('.tip').forEach(e => e.remove()); const t = tip(fig);
+    const n = svg.getBoundingClientRect().width < 520, VW = n ? 380 : 660;
+    const x0 = n ? 8 : 240, x1 = VW - 44, lo = .35, hi = .70, sxv = v => x0 + (x1 - x0) * (v - lo) / (hi - lo), rowH = n ? 50 : 36;
+    const bottom = AUC.length * rowH + 4;
+    svg.setAttribute('viewBox', `0 0 ${VW} ${bottom + 30}`);
     for (const v of [.4, .5, .6, .7]) {
-      el('line', { x1: sx(v), x2: sx(v), y1: 0, y2: bottom, stroke: v === .5 ? css('--muted') : css('--rule'), 'stroke-width': v === .5 ? 1.5 : 1, 'stroke-dasharray': v === .5 ? '5 4' : '' }, svg);
-      el('text', { x: sx(v), y: bottom + 20, 'text-anchor': 'middle' }, svg).textContent = v.toFixed(2) + (v === .5 ? ' chance' : '');
+      el('line', { x1: sxv(v), x2: sxv(v), y1: 0, y2: bottom, stroke: v === .5 ? css('--ink') : css('--rule'), 'stroke-width': v === .5 ? 1.5 : 1, 'stroke-dasharray': v === .5 ? '4 4' : '' }, svg);
+      el('text', { x: sxv(v), y: bottom + 20, 'text-anchor': 'middle' }, svg).textContent = v.toFixed(2) + (v === .5 ? ' chance' : '');
     }
-    rows.forEach(([name, v, ci, note], i) => {
+    AUC.forEach(([name, v, ci, note], i) => {
       const y = i * rowH + rowH / 2 + (n ? 8 : 0);
-      el('text', { x: 0, y: n ? y - 14 : y + 4, class: 'label' }, svg).textContent = name;
-      if (ci) el('line', { x1: sx(ci[0]), x2: sx(ci[1]), y1: y, y2: y, stroke: css('--ink'), 'stroke-width': 2, 'stroke-linecap': 'round' }, svg);
-      el('circle', { cx: sx(v), cy: y, r: 6, fill: css('--ink'), stroke: css('--surface'), 'stroke-width': 2 }, svg);
-      el('text', { x: sx(ci ? ci[1] : v) + 12, y: y + 4, class: 'val' }, svg).textContent = v.toFixed(2);
+      el('text', { x: 0, y: n ? y - 14 : y + 5, class: 'label' }, svg).textContent = name;
+      if (ci) el('line', { x1: sxv(ci[0]), x2: sxv(ci[1]), y1: y, y2: y, stroke: css('--ink'), 'stroke-width': 2, 'stroke-linecap': 'round' }, svg);
+      const above = ci ? ci[0] > .5 : name.startsWith('Reading');
+      el('circle', { cx: sxv(v), cy: y, r: 6, fill: above ? css('--drift') : css('--ink'), stroke: css('--bg'), 'stroke-width': 2 }, svg);
+      el('text', { x: sxv(ci ? ci[1] : v) + 12, y: y + 5, class: 'val' }, svg).textContent = v.toFixed(2);
       const hit = el('rect', { x: 0, y: i * rowH, width: VW, height: rowH, fill: 'transparent' }, svg);
       hover(hit, fig, t, `<b>${name}</b><br>AUC ${v.toFixed(3)}${ci ? ` [${ci[0].toFixed(2)}, ${ci[1].toFixed(2)}]` : ''}<br>${note}`);
     });
-  };
-  drawAUC(AUC);
-
-  (() => {
-    const svg = document.getElementById('policy'), fig = document.getElementById('fig-policy'), t = tip(fig);
-    const rows = [['Triggered by the detector', .27, '--prompt'], ['Random times', .239, '--track'], ['Fixed schedule', .207, '--track']];
-    const n = svg.getBoundingClientRect().width < 520, VW = n ? 380 : 700;
-    const x0 = n ? 0 : 210, x1 = VW - 60, sx = v => x0 + (x1 - x0) * v / .35, rowH = n ? 62 : 46;
+  }
+  function drawPolicy() {
+    const svg = document.getElementById('policy'), fig = document.getElementById('fig-policy');
+    svg.innerHTML = ''; fig.querySelectorAll('.tip').forEach(e => e.remove()); const t = tip(fig);
+    const rows = [['Triggered by the detector', .27, '--prompt'], ['Random times', .239, '--gaze'], ['Fixed schedule', .207, '--gaze']];
+    const n = svg.getBoundingClientRect().width < 520, VW = n ? 380 : 660;
+    const x0 = n ? 0 : 200, x1 = VW - 60, sxv = v => x0 + (x1 - x0) * v / .35, rowH = n ? 62 : 46;
     svg.setAttribute('viewBox', `0 0 ${VW} ${rows.length * rowH + 10}`);
     rows.forEach(([name, v, c], i) => {
       const y = i * rowH + (n ? 26 : 10);
-      el('text', { x: 0, y: n ? y - 8 : y + 21, class: 'label' }, svg).textContent = name;
-      el('rect', { x: x0, y, width: sx(v) - x0, height: 26, rx: 4, fill: css(c) }, svg);
-      el('text', { x: sx(v) + 10, y: y + 18, class: 'val' }, svg).textContent = Math.round(v * 100) + '%';
+      el('text', { x: 0, y: n ? y - 8 : y + 19, class: 'label' }, svg).textContent = name;
+      el('rect', { x: x0, y, width: sxv(v) - x0, height: 24, fill: css(c) }, svg);
+      el('text', { x: sxv(v) + 10, y: y + 17, class: 'val' }, svg).textContent = Math.round(v * 100) + '%';
       const hit = el('rect', { x: 0, y: y - 8, width: VW, height: rowH, fill: 'transparent' }, svg);
       hover(hit, fig, t, `<b>${name}</b><br>${(v * 100).toFixed(1)}% of prompts within 30 s before a report`);
     });
-  })();
-
-  fetch('assets/catchup_example.json').then(r => r.json()).then(q => {
-    document.getElementById('qa-idx').textContent = q.index;
-    document.getElementById('qa-q').textContent = q.question;
-    document.getElementById('qa-a').textContent = 'Answer key: ' + q.answer;
-  });
+  }
+  const charts = () => { drawAUC(); drawPolicy(); };
+  charts();
+  addEventListener('resize', () => requestAnimationFrame(charts));
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', charts);
 })();
 </script>
 </body>

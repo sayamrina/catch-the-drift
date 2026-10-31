@@ -1,0 +1,50 @@
+[
+ {
+  "t": 300000,
+  "kind": "fixed",
+  "hit": true,
+  "after_s": 3,
+  "paragraph": 6,
+  "question": "What does the 'attitude-achievement paradox' reveal about the relationship between confidence and academic performance in different countries?"
+ },
+ {
+  "t": 570000,
+  "kind": "fixed",
+  "hit": false,
+  "after_s": null,
+  "paragraph": 13,
+  "question": "How might international comparisons influence educational reform in Germany?"
+ },
+ {
+  "t": 660000,
+  "kind": "detector",
+  "hit": true,
+  "after_s": 8,
+  "paragraph": 15,
+  "question": "How does socioeconomic status influence student performance in Germany compared to other countries?"
+ },
+ {
+  "t": 870000,
+  "kind": "fixed",
+  "hit": false,
+  "after_s": null,
+  "paragraph": 18,
+  "question": "What were the three key changes in Germany's education system following the international comparison data?"
+ },
+ {
+  "t": 930000,
+  "kind": "detector",
+  "hit": false,
+  "after_s": null,
+  "paragraph": 19,
+  "question": "What were the main focuses of the educational reforms in Germany following the PISA results?"
+ },
+ {
+  "t": 1080000,
+  "kind": "detector",
+  "hit": false,
+  "after_s": null,
+  "paragraph": 22,
+  "question": "How did international comparisons influence educational reforms in Germany, and what were some consequences of these changes?"
+ }
+]
